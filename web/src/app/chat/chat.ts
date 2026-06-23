@@ -1,0 +1,120 @@
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NgClass } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ChatService, Message } from '../services/chat.service';
+
+@Component({
+  selector: 'app-chat',
+  imports: [NgClass, FormsModule],
+  templateUrl: './chat.html',
+  styleUrl: './chat.css',
+})
+export class Chat implements OnInit {
+  protected readonly chatService = inject(ChatService);
+  private readonly route = inject(ActivatedRoute);
+
+  // State management signals
+  protected readonly messages = signal<Message[]>([]);
+  protected readonly userQuery = signal('');
+  protected readonly isLoading = signal(false);
+  protected readonly systemStatus = this.chatService.systemStatus;
+
+  ngOnInit() {
+    // Listen to route parameter changes to update state
+    this.route.paramMap.subscribe((params) => {
+      const sessionId = params.get('id');
+      if (sessionId) {
+        this.chatService.currentSessionId.set(sessionId);
+        this.loadMessages(sessionId);
+      }
+    });
+  }
+
+  private loadMessages(sessionId: string) {
+    this.isLoading.set(true);
+    this.chatService.getSessionMessages(sessionId).subscribe({
+      next: (data) => {
+        this.messages.set(data);
+        this.isLoading.set(false);
+      },
+      error: (err) => {
+        console.error('Failed to load session messages:', err);
+        this.isLoading.set(false);
+      },
+    });
+  }
+
+  protected sendMessage() {
+    const query = this.userQuery().trim();
+    if (!query) return;
+
+    // Add user query to chat history locally first
+    const userMsg: Message = {
+      role: 'user',
+      content: query,
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    };
+    this.messages.update((msgs) => [...msgs, userMsg]);
+    this.userQuery.set('');
+
+    this.isLoading.set(true);
+    const sessionId = this.chatService.currentSessionId();
+
+    this.chatService.sendMessage(query, sessionId).subscribe({
+      next: (data) => {
+        this.isLoading.set(false);
+
+        // Update the last user message with its DB-assigned ID
+        this.messages.update((msgs) => {
+          const updated = [...msgs];
+          const lastUserIndex = updated.map((m) => m.role).lastIndexOf('user');
+          if (lastUserIndex !== -1) {
+            updated[lastUserIndex].id = data.question_id;
+          }
+          return updated;
+        });
+
+        // Add assistant response to local messages
+        const assistantMsg: Message = {
+          id: data.answer_id,
+          role: 'assistant',
+          content: data.answer,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          category: data.category,
+          rag_used: data.rag_used,
+          matched_faq: data.matched_faq,
+        };
+        this.messages.update((msgs) => [...msgs, assistantMsg]);
+      },
+      error: (err) => {
+        this.isLoading.set(false);
+        const errorDetail =
+          err.error?.detail || 'Failed to communicate with the server. Please try again.';
+        const errorMsg: Message = {
+          role: 'assistant',
+          content: `Error: ${errorDetail}`,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          category: 'Error',
+        };
+        this.messages.update((msgs) => [...msgs, errorMsg]);
+      },
+    });
+  }
+
+  protected rateMessage(index: number, rating: 'Good' | 'Average' | 'Poor') {
+    const msgs = this.messages();
+    const msg = msgs[index];
+    if (msg.role !== 'assistant' || !msg.id) return;
+
+    // Set rating locally to update UI immediately
+    msg.rating = rating;
+    this.messages.set([...msgs]);
+
+    // Send rating to backend
+    this.chatService.rateMessage(msg.id, rating).subscribe({
+      next: () => console.log('Feedback submitted successfully'),
+      error: (err) => console.error('Failed to submit feedback', err),
+    });
+  }
+}
