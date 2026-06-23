@@ -1,6 +1,6 @@
 # Implementation Plan: University Student Support Assistant
 
-This document outlines the proposed step-by-step implementation plan for the **University Student Support Assistant** assignment. The system will integrate a local LLM via Ollama, a FastAPI backend, and a Streamlit frontend.
+This document outlines the step-by-step implementation plan for the **University Student Support Assistant** assignment, including the migration to an **Angular** frontend.
 
 ---
 
@@ -8,8 +8,8 @@ This document outlines the proposed step-by-step implementation plan for the **U
 
 ```mermaid
 graph TD
-    User([Student / User]) <--> Frontend[Streamlit Frontend: frontend/app.py]
-    Frontend <--> Backend[FastAPI Backend: backend/main.py]
+    User([Student / User]) <--> Frontend[Angular Frontend: web/ (port 4200)]
+    Frontend <--> Backend[FastAPI Backend: backend/ (port 8000)]
     Backend <--> Ollama[Ollama Local Engine]
     Ollama <--> Model[LLM: llama3.2:1b]
     Backend -.-> Logs[(App Log: backend/logs/app.log)]
@@ -20,7 +20,7 @@ graph TD
 
 ## 2. Directory Structure
 
-We will adhere to the following file layout:
+The project has the following layout:
 
 ```
 support-assistant-llm/
@@ -31,14 +31,21 @@ support-assistant-llm/
 │   ├── faq_data.json      # FAQ data for the Simple RAG option
 │   └── logs/
 │       └── app.log        # Interaction log (timestamp, Q&A, errors)
-├── frontend/
-│   └── app.py             # Streamlit interactive dashboard
+├── web/
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── app.ts     # Angular component (logic and HTTP client)
+│   │   │   ├── app.html   # Angular layout (glassmorphism chat view)
+│   │   │   └── app.css    # Animations and custom styling
+│   │   └── styles.css     # Global styles (Tailwind v4 import)
+│   ├── package.json       # Node package descriptors
+│   └── pnpm-lock.yaml     # Lockfile for pnpm
 ├── tests/
 │   └── test_api.py        # Automated backend API testing script
 ├── docs/
 │   ├── screenshots/       # Evidence screenshots for submission
 │   └── report.md          # Technical report draft and answers to reflection questions
-├── requirements.txt       # Dependencies list (FastAPI, Streamlit, etc.)
+├── requirements.txt       # Dependencies list (FastAPI, requests, etc.)
 ├── PLAN.md                # Project execution plan (This file)
 └── README.md              # Project instructions and usage guide
 ```
@@ -51,7 +58,6 @@ support-assistant-llm/
 1. **Virtual Environment**: Create and activate a Python virtual environment (`.venv`).
 2. **Dependencies**: Create a `requirements.txt` with:
    - `fastapi`, `uvicorn` (Backend API)
-   - `streamlit` (Frontend UI)
    - `requests` (API requests & testing)
    - `pydantic`, `pydantic-settings` (Config validation)
    - `httpx` (Asynchronous HTTP requests)
@@ -63,45 +69,34 @@ support-assistant-llm/
 1. **Config**: Write `backend/config.py` to load environment variables/settings (e.g. host, port, Ollama base URL, model name).
 2. **LLM Client**: Write `backend/llm_client.py` using `httpx` to send chat requests to the Ollama endpoint.
 3. **FastAPI App (`backend/main.py`)**:
-   - Configure centralized logging to `backend/logs/app.log`.
-   - Setup CORS middleware to allow communication from the frontend.
-   - Implement the `/health` endpoint (checks backend readiness and tests if Ollama is accessible and the model is loaded).
-   - Implement the `/ask` endpoint (receives student questions, interacts with the LLM, logs the interaction, and returns responses).
-   - Setup custom exception handlers for Ollama connectivity issues.
+   - Centralized logging to `backend/logs/app.log`.
+   - Setup CORS middleware to allow communication from the Angular frontend.
+   - Implement the `/health` endpoint (checks backend readiness and Ollama engine connection).
+   - Implement the `/ask` endpoint (receives student questions, retrieves FAQ RAG context, queries Ollama, and logs the interaction).
+   - Implement the `/feedback` endpoint (receives ratings Good/Average/Poor from the browser client and records it in `backend/logs/feedback.json`).
 
-### Phase 3: Frontend Development (`frontend/app.py`)
-1. **UI Layout**: Use Streamlit to create a modern web chat interface.
-2. **Loading States**: Add spinner overlays (`st.spinner`) to indicate backend processing for slow responses.
-3. **Error Handling**:
-   - Detect if Backend is offline and display a clean connection error badge.
-   - Return visual warnings if the LLM model is not running.
-   - Block empty inputs with helpful input prompts.
-4. **Interactive Ratings (Option E Extension)**:
-   - Provide a mechanism for students to evaluate LLM responses: **Good / Average / Poor**.
-   - Append user feedback metadata to a JSON/CSV file for analysis.
+### Phase 3: Frontend Development (`web/src/app`)
+1. **Bootstrap Config (`app.config.ts`)**: Add `provideHttpClient()` to enable API connection.
+2. **Component Logic (`app.ts`)**:
+   - Define type declarations and model interfaces.
+   - Use Angular Signals to track reactive state (`messages`, `userQuery`, `isLoading`, `systemStatus`).
+   - Implement backend checks for health and `/ask` queries.
+   - Coordinate feedback rating event handlers.
+3. **Responsive Template (`app.html`)**:
+   - Use Tailwind CSS and glassmorphic panels for a modern chat layout.
+   - Render real-time status metrics (API online, LLM online).
+   - Inject input validation and pulsing bounces for thinking stages.
+4. **Custom Styling (`app.css`)**: Implement slide-in message entries and responsive custom scrollbars.
 
 ### Phase 4: Simple RAG Integration (Option B Extension)
 1. **Knowledge Base**: Store common university questions and answers (e.g. course registration schedules, hostel deadlines, exam codes) inside `backend/faq_data.json`.
-2. **Retriever**: Implement a simple keyword or TF-IDF matching function in `backend/llm_client.py`.
-3. **Augmentation**: Retrieve the top-1 relevant FAQ QA pair and inject it as context into the prompt sent to the LLM (e.g., `"Use the following context to answer the student's question: [context]"`).
+2. **Retriever**: Implement Jaccard similarity word-overlap retriever in `backend/llm_client.py`.
+3. **Augmentation**: Retrieve relevant FAQ QA context and prefix it as truth context inside the chat request.
 
 ### Phase 5: Automated Testing (`tests/test_api.py`)
 1. Create a script to run automated tests.
 2. Test both positive test cases (successful `/health` check and a sample `/ask` request) and negative cases (e.g. sending empty questions, testing behavior when Ollama is stopped).
 
 ### Phase 6: Report and Screenshot Evidence
-1. Write a markdown draft (`docs/report.md`) detailing:
-   - Introduction and Use Cases.
-   - System Architecture diagram.
-   - Implementation steps.
-   - Answers to the 10 reflection questions in the assignment sheet.
-2. Provide guidance to easily run components and take the 8 necessary screenshots required by the assignment sheet.
-
----
-
-## 4. Feedback & Adjustments
-
-Please review this plan. You can request changes to:
-- The chosen local model (defaulting to `llama3.2:1b`).
-- The choice of frontend (Streamlit is chosen for its simplicity and Python alignment).
-- The optional extensions (Simple RAG and Response Evaluation are proposed to secure maximum grades).
+1. Write a markdown draft (`docs/report.md`) detailing the implementation steps and reflection answers.
+2. Provide guide on capturing screenshots.

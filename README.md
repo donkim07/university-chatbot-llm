@@ -22,8 +22,12 @@ support-assistant-llm/
 │   ├── config.py          # Port config, model configurations, Ollama URL
 │   └── logs/
 │       └── app.log        # Interaction log (timestamp, Q&A, errors)
-├── frontend/
-│   └── app.py             # Streamlit interactive chat dashboard
+├── web/
+│   ├── src/
+│   │   ├── app/           # Angular component scripts, html view, styles
+│   │   └── styles.css     # Global stylesheets (Tailwind v4)
+│   ├── package.json       # Node package manager configurations
+│   └── pnpm-lock.yaml     # pnpm package lockfile
 ├── tests/
 │   └── test_api.py        # Backend API testing script
 ├── docs/
@@ -65,15 +69,15 @@ uvicorn backend.main:app --port 8000 --reload
 You can verify the backend endpoints and interact with the Swagger documentation by visiting: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ### 5. Running the Frontend Interface
-With the backend running, launch the Streamlit frontend in a new terminal tab:
+With the backend running, launch the Angular frontend from the `web` directory in a new terminal tab:
 ```bash
-# Ensure virtual environment is active
-source .venv/bin/activate
+# Navigate to web directory
+cd web
 
-# Start Streamlit
-streamlit run frontend/app.py
+# Start Angular development server
+pnpm start
 ```
-The interface will automatically open in your default browser at [http://localhost:8501](http://localhost:8501).
+The interface will automatically open in your default browser at [http://localhost:4200](http://localhost:4200).
 
 ### 6. Automated Testing
 Run the API integration script to verify backend endpoints `/health` and `/ask`:

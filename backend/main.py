@@ -1,4 +1,5 @@
 import os
+import json
 import datetime
 import logging
 from fastapi import FastAPI, HTTPException, status
@@ -129,4 +130,45 @@ async def ask_question(request: AskRequest):
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"An error occurred while generating response: {str(e)}"
+        )
+
+
+class FeedbackRequest(BaseModel):
+    question: str = Field(..., description="The student's original query.")
+    answer: str = Field(..., description="The assistant's generated response.")
+    rating: str = Field(..., description="The rating: Good, Average, or Poor.")
+
+
+@app.post("/feedback")
+async def receive_feedback(request: FeedbackRequest):
+    feedback_file = os.path.join(os.path.dirname(settings.log_file), "feedback.json")
+    feedback_data = []
+    
+    if os.path.exists(feedback_file):
+        try:
+            with open(feedback_file, "r", encoding="utf-8") as f:
+                content = f.read().strip()
+                if content:
+                    feedback_data = json.loads(content)
+        except Exception as e:
+            logger.error(f"Error reading feedback file: {str(e)}")
+            
+    feedback_entry = {
+        "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "question": request.question,
+        "answer": request.answer,
+        "rating": request.rating
+    }
+    feedback_data.append(feedback_entry)
+    
+    try:
+        with open(feedback_file, "w", encoding="utf-8") as f:
+            json.dump(feedback_data, f, indent=2)
+        logger.info(f"Received user feedback: Question: '{request.question[:30]}...' | Rating: {request.rating}")
+        return {"status": "success", "message": "Feedback saved successfully."}
+    except Exception as e:
+        logger.error(f"Failed to save feedback: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to save feedback: {str(e)}"
         )

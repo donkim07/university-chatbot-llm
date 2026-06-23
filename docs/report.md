@@ -21,7 +21,7 @@ The system serves as a primary support layer for university administration. It a
 
 ## 3. Tools and Technologies Used
 - **Backend Framework**: Python 3.10+ / FastAPI & Uvicorn for asynchronous, fast, and scalable API routing.
-- **Frontend Framework**: Streamlit (Python) for a responsive, interactive, and premium chat dashboard.
+- **Frontend Framework**: Angular (TypeScript) for a standalone, component-based, highly customized web interface styled with Tailwind CSS.
 - **LLM Serving Engine**: Ollama (Local Server).
 - **LLM Model**: `llama3.2:1b` (a lightweight 1.3B parameter model suited for low-latency local execution).
 - **RAG Component**: Standard Library Python JSON-based keyword matcher (using intersection Jaccard similarity over tokenized, cleaned queries).
@@ -32,17 +32,17 @@ The system serves as a primary support layer for university administration. It a
 ## 4. System Architecture
 
 ```
-User <---> Streamlit UI (app.py:8501) <---> FastAPI Backend (main.py:8000) <---> Ollama Local API (11434)
+User <---> Angular Client (http://localhost:4200) <---> FastAPI Backend (main.py:8000) <---> Ollama Local API (11434)
                                                     |
                                             +-------+-------+
                                             |               |
                                      faq_data.json       app.log
 ```
 
-1. **User Request**: The student asks a question via the Streamlit UI.
+1. **User Request**: The student asks a question via the Angular UI.
 2. **Retrieve Context (RAG)**: The FastAPI backend cleans the student's question, performs word-overlap scoring against the `faq_data.json` database, and retrieves the most similar FAQ pair if the similarity exceeds `0.15`.
 3. **LLM Invocation**: The backend constructs a system prompt directing the LLM to use the retrieved context as the primary source of truth. It sends this combined prompt to the local Ollama instance running `llama3.2:1b`.
-4. **Logging & Response**: The interaction (question, generated answer, category, timestamp, RAG utilization status) is logged to `backend/logs/app.log`. The answer is returned to the Streamlit UI.
+4. **Logging & Response**: The interaction (question, generated answer, category, timestamp, RAG utilization status) is logged to `backend/logs/app.log`. The answer is returned to the Angular UI.
 5. **Feedback Loop**: The user can rate the response quality (Good / Average / Poor) in the UI. Feedback is recorded instantly in `backend/logs/feedback.json`.
 
 ---
@@ -52,7 +52,7 @@ User <---> Streamlit UI (app.py:8501) <---> FastAPI Backend (main.py:8000) <--->
 2. **Environment Configuration**: Set up a virtual environment `.venv`, configured dependencies inside `requirements.txt`, and verified the Python 3.10+ installation.
 3. **Ollama Integration**: Pulled the model `llama3.2:1b` locally and validated connection via health checks.
 4. **Backend Implementation**: Created configuration files, RAG retrieval engine, FastAPI routes (`/health` and `/ask`), logging pipelines, and error boundaries.
-5. **Frontend Development**: Created a high-fidelity Streamlit user interface featuring glassmorphic sidebar widgets, status panels, reactive chat layouts, loading spinners, and response evaluation buttons.
+5. **Frontend Development**: Created a standalone Angular component utilizing Signal states, Tailwind CSS v4, custom CSS transitions, health checks, and rating handlers.
 6. **Automation & Testing**: Programmed `tests/test_api.py` to trigger health checks and chat queries automatically, validating API responses.
 
 ---
@@ -69,14 +69,14 @@ Testing is automated using `tests/test_api.py`.
 ## 7. Challenges Encountered
 1. **Ollama Connection Timeouts**: Initial execution of local models may cause cold start lag. This was solved by configuring generous timeouts (30s) in HTTPX clients.
 2. **Prompt Hallucination**: Without RAG, `llama3.2:1b` would invent fictional university dates and room numbers. Implementing RAG matching and explicitly instructing the model to treat context as truth mitigated this issue.
-3. **Session State Rerendering**: In Streamlit, button presses cause page reloads. We managed feedback key generation using unique index strings to prevent state loss during evaluations.
+3. **CORS & State Management**: Connecting a browser client to a backend requires CORS setups. Also, writing feedback directly to disk from the browser is restricted due to sandbox rules, requiring a new `/feedback` route in FastAPI.
 
 ---
 
 ## 8. Reflection Answers (Task 9)
 
 ### 1. What are the main components of your deployed LLM system?
-- **Streamlit Frontend**: Chat interface and status dashboard.
+- **Angular Frontend**: Chat UI, dynamic state bindings, and system diagnostics.
 - **FastAPI Backend**: Handles API routing, RAG context retrieval, logging, and error handling.
 - **Local RAG Store**: Standard JSON storage (`faq_data.json`) containing official university policies.
 - **Ollama LLM Server**: Hosts and runs the local `llama3.2:1b` model.
@@ -89,7 +89,7 @@ FastAPI is highly asynchronous, supports fast serialization/deserialization via 
 The `llama3.2:1b` model synthesizes the raw retrieved context into natural, polite, and human-like answers. It handles grammatical variations, translates the official FAQ rules into conversational language, and answers follow-up general inquiries.
 
 ### 4. What role does the frontend play?
-The Streamlit frontend provides a user-friendly conversational interface. It abstracts away backend API requests, handles UI states (loading spinners, offline notices), checks the system health, and lets users submit response ratings.
+The Angular frontend provides a user-friendly conversational interface. It abstracts away backend API requests via HttpClient, manages component lifecycle and state reactively, and binds health checks and ratings seamlessly.
 
 ### 5. What is the difference between running the model locally and using an external API?
 - **Local Model**: Zero API costs, complete privacy/data security (questions never leave the host machine), runs entirely offline, but is constrained by local CPU/GPU performance.
@@ -117,7 +117,7 @@ The Streamlit frontend provides a user-friendly conversational interface. It abs
 - Clear session histories upon logout or timeout.
 
 ### 10. What challenges did you face during implementation?
-Managing python dependencies across environments, integrating simple keyword retrieval without heavy ML libraries, and coordinating Streamlit states when rating messages were major challenges. These were solved by structured formatting, utilizing Pydantic settings, and logging exceptions cleanly.
+Managing Python environment alignment, integrating RAG matching rules, and securing browser security compliance (CORS and remote disk access for feedback logs) were major challenges. These were solved by adding FastAPI middleware and exposing a dedicated `/feedback` route.
 
 ---
 
@@ -141,5 +141,5 @@ uvicorn backend.main:app --port 8000 --reload
 
 ### 3. Run Frontend
 ```bash
-streamlit run frontend/app.py
+cd web && pnpm start
 ```
