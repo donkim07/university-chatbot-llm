@@ -10,10 +10,73 @@ This is a support chat assistance AI that will help students to ask questions ab
 - Academic calendar
 - Student conduct
 
-## Project focus
-To demonstrate how to integrate running models to an interactive application that can be used and interacted with by normal users.
+## Project Focus
+To demonstrate how to integrate running local models into an interactive full-stack application that can be easily used by normal users.
 
-## Project requirements
-1. A well functional computer workstation. Preferably with Dedicated GPU such as Nvidia or AMD GPUs.
-2. Python 3.10+ installed
-3. Ollama installed see [Ollama website](`https://ollama.com/`) to learn how to download
+## Project Structure
+```
+support-assistant-llm/
+├── backend/
+│   ├── main.py            # FastAPI endpoints, logging, and error handling
+│   ├── llm_client.py      # Ollama API client & RAG keyword matching
+│   ├── config.py          # Port config, model configurations, Ollama URL
+│   └── logs/
+│       └── app.log        # Interaction log (timestamp, Q&A, errors)
+├── frontend/
+│   └── app.py             # Streamlit interactive chat dashboard
+├── tests/
+│   └── test_api.py        # Backend API testing script
+├── docs/
+│   └── report.md          # Technical report draft and reflection answers
+├── requirements.txt       # Unified Python requirements list
+└── README.md              # Project instructions and usage guide (This file)
+```
+
+## Setup & Running Instructions
+
+### 1. Requirements & Prerequisites
+- Python 3.10+ installed
+- [Ollama](https://ollama.com/) installed and running locally
+
+### 2. Environment Configuration
+Create and activate a Python virtual environment, then install dependencies:
+```bash
+# Create virtual environment
+python3 -m venv .venv
+
+# Activate virtual environment
+source .venv/bin/activate
+
+# Install requirements
+pip install -r requirements.txt
+```
+
+### 3. Setup Local LLM Model
+Ensure the Ollama service is running, and pull the lightweight `llama3.2:1b` model:
+```bash
+ollama pull llama3.2:1b
+```
+
+### 4. Running the Backend API
+Start the FastAPI server on port `8000`:
+```bash
+uvicorn backend.main:app --port 8000 --reload
+```
+You can verify the backend endpoints and interact with the Swagger documentation by visiting: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+### 5. Running the Frontend Interface
+With the backend running, launch the Streamlit frontend in a new terminal tab:
+```bash
+# Ensure virtual environment is active
+source .venv/bin/activate
+
+# Start Streamlit
+streamlit run frontend/app.py
+```
+The interface will automatically open in your default browser at [http://localhost:8501](http://localhost:8501).
+
+### 6. Automated Testing
+Run the API integration script to verify backend endpoints `/health` and `/ask`:
+```bash
+python3 tests/test_api.py
+```

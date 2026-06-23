@@ -1,0 +1,52 @@
+[
+  {
+    "category": "Course Registration",
+    "question": "How do I register for courses and what is the deadline?",
+    "answer": "Course registration is completed online through the Student Portal. Go to 'Academic' -> 'Course Registration'. Select your courses according to your program structure and click 'Submit'. The deadline for regular course registration is the 2nd Friday of the semester. Late registration incurs a fee of $50 and is open until the 3rd Friday of the semester."
+  },
+  {
+    "category": "Course Registration",
+    "question": "Can I add or drop courses after the semester starts?",
+    "answer": "Yes, you can add or drop courses during the first two weeks of the semester (the Add/Drop period) via the Student Portal. No changes are permitted after the end of the second week."
+  },
+  {
+    "category": "Examination Rules",
+    "question": "What is the grading system and what happens if I fail a course?",
+    "answer": "The university uses a standard letter grading scale: A (70-100%, 5.0 GPA), B (60-69%, 4.0 GPA), C (50-59%, 3.0 GPA), D (40-49%, 2.0 GPA), and F (0-39%, 0.0 GPA). If you fail a course (grade F), you must re-register for the course and retake it in the next semester it is offered. A course can be retaken a maximum of three times."
+  },
+  {
+    "category": "Examination Rules",
+    "question": "What happens if I miss an exam due to illness?",
+    "answer": "If you miss an exam due to a medical emergency, you must submit a medical report signed by the University Medical Officer to the Registry within 48 hours of the exam. If approved, you will be allowed to sit for a Special Examination in the break period."
+  },
+  {
+    "category": "Library Services",
+    "question": "How many books can I borrow from the library and for how long?",
+    "answer": "Undergraduates can borrow up to 4 books for a duration of 14 days. Postgraduates can borrow up to 8 books for 30 days. Renewals can be made online twice unless the book has been reserved by another user. Overdue books attract a fine of $1 per day per book."
+  },
+  {
+    "category": "ICT Support",
+    "question": "How do I connect to the university campus Wi-Fi and reset my portal password?",
+    "answer": "To connect to the 'Uni-Wifi' network, select it on your device and log in using your student email (e.g. registrationNumber@student.university.edu) and your portal password. To reset your portal password, go to the Student Portal login page, click 'Forgot Password', and follow the email reset link. For further ICT issues, visit the Helpdesk at the Admin Block, Room 102, or email support@university.edu."
+  },
+  {
+    "category": "Hostel Application",
+    "question": "How do I apply for a hostel and what are the hostel fees?",
+    "answer": "Hostel applications are opened 30 days before the start of each semester via the Student Portal. Accommodation is allocated on a first-come, first-served basis, with priority given to first-year and international students. The hostel fee is $350 per semester, payable in full before room allocation is finalized."
+  },
+  {
+    "category": "Fee Payment",
+    "question": "What are the fee payment options and is there an instalment plan?",
+    "answer": "Tuition fees are payable via bank deposit, bank transfer, or online payment through the Student Portal. The university offers an instalment plan: 60% of total fees must be paid to register for courses at the start of the semester, and the remaining 40% must be paid before the start of final examinations. Failure to clear fees blocks access to the exam card."
+  },
+  {
+    "category": "Academic Calendar",
+    "question": "What are the key dates for the current academic calendar?",
+    "answer": "The current semester runs as follows: Semester Starts / Lectures Begin: September 1st; Mid-Semester Break: October 15th to October 22nd; Lectures End: November 30th; Revision Week: December 1st to December 7th; End-of-Semester Examinations: December 8th to December 22nd."
+  },
+  {
+    "category": "Student Conduct",
+    "question": "What are the rules regarding dress code and student ID cards?",
+    "answer": "Students are expected to dress decently and professionally. Inappropriate clothing (e.g., extremely short skirts, ripped jeans, sleeveless tops) is not permitted on campus. Student ID cards must be worn and visible at all times while on university premises. Lost ID cards can be replaced at the Security Office for a fee of $15."
+  }
+]
