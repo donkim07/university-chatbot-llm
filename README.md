@@ -84,3 +84,6 @@ Run the API integration script to verify backend endpoints `/health` and `/ask`:
 ```bash
 python3 tests/test_api.py
 ```
+
+### 7. Demo
+![Screenshot 1](DESIGN.png)
