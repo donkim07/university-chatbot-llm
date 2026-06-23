@@ -1,26 +1,32 @@
-import { Component, effect, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, effect, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NgClass } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChatService, Message } from '../services/chat.service';
 import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-chat',
-  imports: [NgClass, FormsModule],
+  imports: [NgClass, FormsModule, DatePipe],
   templateUrl: './chat.html',
   styleUrl: './chat.css',
 })
 export class Chat implements OnInit {
   protected readonly chatService = inject(ChatService);
   private readonly route = inject(ActivatedRoute);
-  private title = inject(Title)
+  private title = inject(Title);
 
   // State management signals
   protected readonly messages = signal<Message[]>([]);
   protected readonly userQuery = signal('');
   protected readonly isLoading = signal(false);
   protected readonly systemStatus = this.chatService.systemStatus;
+  protected readonly currentSession = computed(() => {
+    const currentId = this.chatService.currentSessionId();
+    const sessions = this.chatService.sessions();
+
+    return sessions.find((value) => value.id == currentId);
+  });
 
   ngOnInit() {
     // Listen to route parameter changes to update state
@@ -35,11 +41,8 @@ export class Chat implements OnInit {
 
   constructor() {
     effect(() => {
-      const currentId = this.chatService.currentSessionId();
-      const sessions = this.chatService.sessions();
-
-      const chatSession = sessions.find((value) => value.id == currentId);
-      this.title.setTitle(chatSession?.title ?? 'New Chat');
+      const currentSession = this.currentSession();
+      this.title.setTitle(currentSession?.title ?? 'New Chat');
     });
   }
 
