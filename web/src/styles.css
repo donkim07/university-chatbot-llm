@@ -25,6 +25,24 @@
   --color-brand-light: #c084fc;
   --color-surface: #0f0f12;
 
+  /* Hex palette overrides — better Firefox compatibility than default oklch tokens */
+  --color-purple-300: #d8b4fe;
+  --color-purple-400: #c084fc;
+  --color-purple-500: #a855f7;
+  --color-purple-600: #9333ea;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-slate-100: #f1f5f9;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
@@ -148,4 +166,54 @@ body {
 
 .animate-pulse-dot {
   animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Firefox-safe fallbacks for Tailwind v4 oklab/@property gradients */
+.brand-gradient-b {
+  background-color: #9333ea;
+  background-image: linear-gradient(to bottom, #9333ea, #2563eb);
+}
+
+.brand-gradient-br {
+  background-color: #9333ea;
+  background-image: linear-gradient(to bottom right, #9333ea, #2563eb);
+}
+
+.brand-gradient-r {
+  background-color: #9333ea;
+  background-image: linear-gradient(to right, #9333ea, #2563eb);
+}
+
+@media (hover: hover) {
+  .brand-gradient-b:hover,
+  .brand-gradient-br:hover,
+  .brand-gradient-r:hover {
+    background-image: linear-gradient(to bottom right, #a855f7, #3b82f6);
+  }
+}
+
+.bg-gradient-to-b.from-purple-600.to-blue-600,
+.bg-gradient-to-br.from-purple-600.to-blue-600,
+.bg-gradient-to-r.from-purple-600.to-blue-600 {
+  background-color: #9333ea;
+}
+
+.bg-gradient-to-b.from-purple-600.to-blue-600 {
+  background-image: linear-gradient(to bottom, #9333ea, #2563eb);
+}
+
+.bg-gradient-to-br.from-purple-600.to-blue-600 {
+  background-image: linear-gradient(to bottom right, #9333ea, #2563eb);
+}
+
+.bg-gradient-to-r.from-purple-600.to-blue-600 {
+  background-image: linear-gradient(to right, #9333ea, #2563eb);
+}
+
+@media (hover: hover) {
+  .hover\:from-purple-500.hover\:to-blue-500:hover.bg-gradient-to-b,
+  .hover\:from-purple-500.hover\:to-blue-500:hover.bg-gradient-to-br,
+  .hover\:from-purple-500.hover\:to-blue-500:hover.bg-gradient-to-r {
+    background-image: linear-gradient(to bottom right, #a855f7, #3b82f6);
+  }
 }

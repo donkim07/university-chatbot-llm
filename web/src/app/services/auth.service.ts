@@ -2,6 +2,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
+import { API_BASE_URL } from '../lib/api-config';
 
 export interface User {
   id: string;
@@ -25,7 +26,7 @@ const USER_KEY = 'unisupport_user';
 export class AuthService {
   private readonly http = inject(HttpClient);
   private readonly router = inject(Router);
-  private readonly backendUrl = 'http://localhost:8000';
+  private readonly backendUrl = API_BASE_URL;
 
   readonly currentUser = signal<User | null>(this.loadStoredUser());
   readonly isAuthenticated = signal(!!this.getToken());

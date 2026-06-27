@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { formatLocalTime } from '../lib/time';
+import { API_BASE_URL } from '../lib/api-config';
 
 export interface Message {
   id?: string;
@@ -34,7 +35,7 @@ export interface HealthInfo {
 })
 export class ChatService {
   private readonly http = inject(HttpClient);
-  private readonly backendUrl = 'http://localhost:8000';
+  private readonly backendUrl = API_BASE_URL;
 
   // Shared state signals
   readonly sessions = signal<ChatSession[]>([]);
