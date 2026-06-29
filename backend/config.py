@@ -11,10 +11,17 @@ class Settings(BaseSettings):
     log_file: str = os.path.join(os.path.dirname(__file__), "logs", "app.log")
     faq_data_path: str = os.path.join(os.path.dirname(__file__), "faq_data.json")
     database_url: str = "sqlite:///./chat_history.db"
+    # Optional production .env fields (ignored if unused)
+    environment: str = "development"
+    debug: bool = False
+    secret_key: str = ""
 
-    class Config:
-        env_prefix = "APP_"
-        case_sensitive = False
-        env_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env")
+    model_config = SettingsConfigDict(
+        env_prefix="APP_",
+        case_sensitive=False,
+        env_file=_ENV_FILE,
+        extra="ignore",
+    )
+
 
 settings = Settings()

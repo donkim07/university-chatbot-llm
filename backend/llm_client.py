@@ -8,16 +8,24 @@ from typing import Dict, Any, Optional, Tuple, List
 from backend.config import settings
 from backend.prompts import (
     IMPROVED_SYSTEM_PROMPT,
-    RAG_STRICT_SYSTEM_PROMPT,
+    RAG_BLEND_SYSTEM_PROMPT,
     GREETING_PATTERNS,
     OFF_TOPIC_KEYWORDS,
 )
 
 logger = logging.getLogger("backend_logger")
 
-# Score at or above this: return official FAQ answer directly (llama3.2:1b often ignores RAG)
-RAG_DIRECT_THRESHOLD = 0.28
-RAG_LLM_THRESHOLD = 0.10
+# Minimum score + confidence required to attach FAQ context to the LLM
+RAG_BLEND_THRESHOLD = 0.38
+# Only skip the LLM when Ollama is down and we have a solid FAQ match
+RAG_FALLBACK_THRESHOLD = 0.45
+
+# Single-word overlaps on these are not enough to trigger RAG
+AMBIGUOUS_TOKENS = {
+    "security", "help", "support", "student", "university", "udsm", "campus",
+    "know", "anything", "about", "tell", "information", "question", "service",
+    "office", "rule", "rules", "policy", "policies",
+}
 
 SYNONYM_GROUPS = [
     {"register", "registration", "enroll", "enrollment", "signup", "sign"},
@@ -41,7 +49,6 @@ class LLMClient:
         self.reload_faq_data()
 
     def reload_faq_data(self) -> int:
-        """Load or hot-reload FAQ JSON when the file changes (e.g. after deploy)."""
         path = settings.faq_data_path
         try:
             mtime = os.path.getmtime(path)
@@ -84,7 +91,7 @@ class LLMClient:
             "i", "you", "me", "he", "she", "it", "they", "we", "can", "could", "should",
             "would", "am", "are", "was", "were", "be", "been", "being", "have", "has",
             "had", "that", "this", "there", "from", "about", "into", "any", "all", "some",
-            "long", "many", "much",
+            "long", "many", "much", "know", "anything", "something", "really", "just",
         }
         raw = {word for word in words if word not in stopwords and len(word) > 1}
         stemmed = {self._stem(w) for w in raw}
@@ -100,25 +107,60 @@ class LLMClient:
     def _faq_search_texts(self, faq: Dict[str, Any]) -> List[str]:
         texts = [faq.get("question", "")]
         texts.extend(faq.get("aliases", []))
-        texts.extend(faq.get("keywords", []))
         return [t for t in texts if t]
 
-    def retrieve_context(self, question: str) -> Tuple[Optional[Dict[str, Any]], float]:
+    def _faq_keyword_tokens(self, faq: Dict[str, Any]) -> set:
+        tokens: set = set()
+        for kw in faq.get("keywords", []):
+            tokens.update(self._clean_and_tokenize(kw))
+        return tokens
+
+    def _is_confident_match(
+        self,
+        question_tokens: set,
+        faq_tokens: set,
+        intersection: set,
+        score: float,
+    ) -> bool:
+        if score < RAG_BLEND_THRESHOLD:
+            return False
+
+        meaningful = intersection - AMBIGUOUS_TOKENS
+        if len(meaningful) >= 2:
+            return True
+        if len(meaningful) == 1 and score >= 0.55:
+            return True
+        # High overall score with several overlapping tokens (e.g. near-duplicate question)
+        if len(intersection) >= 3 and score >= 0.5:
+            return True
+        # Only ambiguous overlap (e.g. "security" → dress code FAQ)
+        if len(meaningful) == 0:
+            return False
+        return score >= 0.65
+
+    def retrieve_context(self, question: str) -> Tuple[Optional[Dict[str, Any]], float, bool]:
+        """
+        Returns (best_faq, score, is_confident).
+        """
         self.reload_faq_data()
         if not self.faq_data:
-            return None, 0.0
+            return None, 0.0, False
 
         question_tokens = self._clean_and_tokenize(question)
         if not question_tokens:
-            return None, 0.0
+            return None, 0.0, False
 
         best_match = None
         best_score = 0.0
+        best_confident = False
 
         for faq in self.faq_data:
+            all_faq_tokens: set = set()
             field_scores = []
+
             for text in self._faq_search_texts(faq):
                 faq_tokens = self._clean_and_tokenize(text)
+                all_faq_tokens.update(faq_tokens)
                 if not faq_tokens:
                     continue
                 intersection = question_tokens.intersection(faq_tokens)
@@ -127,23 +169,38 @@ class LLMClient:
                 recall = len(intersection) / len(question_tokens) if question_tokens else 0.0
                 field_scores.append(max(jaccard, recall * 0.9))
 
+            # Keywords contribute but with lower weight — avoids false positives
+            kw_tokens = self._faq_keyword_tokens(faq)
+            if kw_tokens:
+                all_faq_tokens.update(kw_tokens)
+                intersection = question_tokens.intersection(kw_tokens)
+                if intersection:
+                    union = question_tokens.union(kw_tokens)
+                    kw_score = len(intersection) / len(union) * 0.75
+                    field_scores.append(kw_score)
+
             if not field_scores:
                 continue
 
             score = max(field_scores)
-            if len([s for s in field_scores if s >= 0.18]) >= 2:
-                score = min(1.0, score + 0.1)
+            intersection = question_tokens.intersection(all_faq_tokens)
+            confident = self._is_confident_match(question_tokens, all_faq_tokens, intersection, score)
 
             if score > best_score:
                 best_score = score
                 best_match = faq
+                best_confident = confident
 
-        return best_match, best_score
+        if best_match and not best_confident:
+            logger.info(
+                f"Weak FAQ candidate rejected: '{best_match['question']}' score={best_score:.2f}"
+            )
+            return None, best_score, False
+
+        return best_match, best_score, best_confident
 
     def _faq_response(self, faq: Dict[str, Any], score: float, source: str) -> Dict[str, Any]:
-        logger.info(
-            f"FAQ {source}: '{faq['question']}' score={score:.2f}"
-        )
+        logger.info(f"FAQ {source}: '{faq['question']}' score={score:.2f}")
         return {
             "answer": faq["answer"],
             "category": faq["category"],
@@ -216,6 +273,37 @@ class LLMClient:
             except Exception as e:
                 return False, f"Ollama connection error: {str(e)}"
 
+    async def _call_llm(
+        self,
+        question: str,
+        system_prompt: str,
+        user_content: str,
+        history: Optional[list],
+        temperature: float = 0.45,
+    ) -> str:
+        messages = [{"role": "system", "content": system_prompt}]
+        if history:
+            for item in history[-10:]:
+                messages.append({"role": item["role"], "content": item["content"]})
+        messages.append({"role": "user", "content": user_content})
+
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                f"{self.base_url}/api/chat",
+                json={
+                    "model": self.model,
+                    "messages": messages,
+                    "stream": False,
+                    "options": {"temperature": temperature, "num_predict": 320},
+                },
+                timeout=60.0,
+            )
+            if response.status_code != 200:
+                raise RuntimeError(
+                    f"Ollama API returned code {response.status_code}: {response.text}"
+                )
+            return response.json()["message"]["content"].strip()
+
     async def generate_response(
         self,
         question: str,
@@ -240,109 +328,72 @@ class LLMClient:
 
         matched_faq = None
         rag_score = 0.0
+        rag_confident = False
         if use_rag:
-            matched_faq, rag_score = self.retrieve_context(question)
-
-        # Strong FAQ match: return official answer directly (reliable on small models)
-        if matched_faq and rag_score >= RAG_DIRECT_THRESHOLD:
-            return self._faq_response(matched_faq, rag_score, "direct")
+            matched_faq, rag_score, rag_confident = self.retrieve_context(question)
 
         is_healthy, health_msg = await self.check_ollama_health()
         if not is_healthy:
-            if matched_faq and rag_score >= RAG_LLM_THRESHOLD:
+            if matched_faq and rag_confident and rag_score >= RAG_FALLBACK_THRESHOLD:
                 return self._faq_response(matched_faq, rag_score, "fallback")
             raise ConnectionError(health_msg)
 
-        context = ""
-        faq_category = "General University Support"
+        use_rag_context = bool(matched_faq and rag_confident)
+        faq_category = matched_faq["category"] if use_rag_context else "General University Support"
 
-        if matched_faq and rag_score >= RAG_LLM_THRESHOLD:
-            faq_category = matched_faq["category"]
-            context = (
-                f"MANDATORY OFFICIAL ANSWER — copy every fact, number, date, and fee exactly:\n"
-                f"Topic: {matched_faq['category']}\n"
-                f"Official Answer: {matched_faq['answer']}\n"
-            )
-            logger.info(f"RAG LLM assist: '{matched_faq['question']}' score={rag_score:.2f}")
-        else:
-            logger.info(f"No FAQ match for: '{question}' (best score: {rag_score:.2f})")
-
-        system_prompt = RAG_STRICT_SYSTEM_PROMPT if context else IMPROVED_SYSTEM_PROMPT
-        messages = [{"role": "system", "content": system_prompt}]
-
-        if history:
-            for item in history[-10:]:
-                messages.append({"role": item["role"], "content": item["content"]})
-
-        if context:
-            user_content = (
-                f"{context}\n"
-                f"Rephrase the official answer above in a friendly tone for the student. "
-                f"Do NOT change any numbers, dates, fees, or policy details.\n\n"
-                f"Student Question: {question}"
-            )
-        else:
-            user_content = (
-                f"No FAQ entry matched this question. "
-                f"If it is about UDSM student services (registration, exams, library, ICT, hostels, "
-                f"fees, calendar, conduct), answer briefly and suggest the relevant office. "
-                f"If outside scope, politely decline.\n\n"
-                f"Student Question: {question}"
-            )
-
-        messages.append({"role": "user", "content": user_content})
-
-        async with httpx.AsyncClient() as client:
-            try:
-                response = await client.post(
-                    f"{self.base_url}/api/chat",
-                    json={
-                        "model": self.model,
-                        "messages": messages,
-                        "stream": False,
-                        "options": {"temperature": 0.1, "num_predict": 300},
-                    },
-                    timeout=60.0,
+        try:
+            if use_rag_context:
+                logger.info(
+                    f"RAG+LLM blend: '{matched_faq['question']}' score={rag_score:.2f}"
+                )
+                user_content = (
+                    f"Official FAQ reference (ground your answer in these facts):\n"
+                    f"Topic: {matched_faq['category']}\n"
+                    f"Related question: {matched_faq['question']}\n"
+                    f"Official answer: {matched_faq['answer']}\n\n"
+                    f"Student's question: {question}\n\n"
+                    f"Write a helpful, natural reply. Keep all numbers, dates, and fees exact."
+                )
+                reply = await self._call_llm(
+                    question,
+                    RAG_BLEND_SYSTEM_PROMPT,
+                    user_content,
+                    history,
+                    temperature=0.4,
+                )
+            else:
+                logger.info(
+                    f"LLM-only: '{question}'"
+                    + (f" (weak FAQ score {rag_score:.2f})" if rag_score > 0 else "")
+                )
+                user_content = (
+                    f"The student asked a question that did not closely match any official FAQ entry.\n"
+                    f"Answer thoughtfully based on general UDSM student services knowledge.\n"
+                    f"For ICT, cybersecurity, or portal topics, mention the University Computing Centre (UCC).\n"
+                    f"Do not invent specific fees or dates. If unsure, suggest the right office.\n\n"
+                    f"Student question: {question}"
+                )
+                reply = await self._call_llm(
+                    question,
+                    IMPROVED_SYSTEM_PROMPT,
+                    user_content,
+                    history,
+                    temperature=0.5,
                 )
 
-                if response.status_code != 200:
-                    raise RuntimeError(
-                        f"Ollama API returned code {response.status_code}: {response.text}"
-                    )
+            return {
+                "answer": reply,
+                "category": faq_category,
+                "rag_used": use_rag_context,
+                "matched_faq": matched_faq["question"] if use_rag_context else None,
+            }
 
-                result = response.json()
-                reply = result["message"]["content"].strip()
-
-                # If LLM gave a weak/generic answer but we had a FAQ match, use FAQ instead
-                if matched_faq and rag_score >= RAG_LLM_THRESHOLD:
-                    generic_phrases = (
-                        "contact the library",
-                        "library portal",
-                        "library helpdesk",
-                        "visit their website",
-                        "i can't help",
-                        "i cannot help",
-                        "outside of my",
-                        "falls outside",
-                    )
-                    if any(p in reply.lower() for p in generic_phrases):
-                        logger.warning("LLM ignored FAQ; substituting official answer")
-                        return self._faq_response(matched_faq, rag_score, "override")
-
-                return {
-                    "answer": reply,
-                    "category": faq_category,
-                    "rag_used": bool(context),
-                    "matched_faq": matched_faq["question"] if matched_faq and context else None,
-                }
-
-            except httpx.TimeoutException:
-                if matched_faq and rag_score >= RAG_LLM_THRESHOLD:
-                    return self._faq_response(matched_faq, rag_score, "timeout-fallback")
-                logger.error("Timeout connecting to Ollama generation API.")
-                raise TimeoutError("Ollama model took too long to respond.")
-            except Exception as e:
-                if matched_faq and rag_score >= RAG_LLM_THRESHOLD:
-                    return self._faq_response(matched_faq, rag_score, "error-fallback")
-                logger.error(f"Error during Ollama query: {str(e)}")
-                raise e
+        except httpx.TimeoutException:
+            if matched_faq and rag_confident:
+                return self._faq_response(matched_faq, rag_score, "timeout-fallback")
+            raise TimeoutError("Ollama model took too long to respond.")
+        except Exception as e:
+            if matched_faq and rag_confident:
+                return self._faq_response(matched_faq, rag_score, "error-fallback")
+            logger.error(f"Error during Ollama query: {str(e)}")
+            raise e
