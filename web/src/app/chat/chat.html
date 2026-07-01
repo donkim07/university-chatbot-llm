@@ -1,108 +1,100 @@
 <div class="h-full min-h-0 flex flex-col">
-  <div #messagesContainer class="flex-1 min-h-0 overflow-y-auto overscroll-contain">
-    <div class="max-w-2xl mx-auto px-4 py-6 space-y-6">
+  <div #messagesContainer class="flex-1 min-h-0 overflow-y-auto overscroll-contain p-4 sm:p-8 space-y-6">
+    <div class="max-w-4xl mx-auto space-y-6">
       @for (msg of messages(); track msg.id ?? $index; let msgIdx = $index) {
-        @if (msg.role === 'user') {
-          <div class="flex justify-end animate-slide-in">
-            <div class="max-w-[85%] px-4 py-2.5 rounded-2xl rounded-br-sm bg-violet-600 text-white text-sm leading-relaxed">
-              {{ msg.content }}
-            </div>
+        <div
+          class="flex flex-col max-w-[92%] sm:max-w-[80%] animate-slide-in"
+          [ngClass]="{
+            'self-end': msg.role === 'user',
+            'self-start': msg.role === 'assistant'
+          }"
+        >
+          <div
+            class="px-5 py-3.5 rounded-2xl leading-relaxed text-sm whitespace-pre-wrap shadow-md shadow-black/10"
+            [ngClass]="{
+              'bg-gradient-to-br from-purple-600 to-blue-600 text-white rounded-br-none': msg.role === 'user',
+              'bg-slate-900 border border-slate-800 text-slate-100 rounded-bl-none': msg.role === 'assistant' && msg.category !== 'Error',
+              'bg-rose-500/10 border border-rose-500/20 text-rose-300 rounded-bl-none': msg.role === 'assistant' && msg.category === 'Error'
+            }"
+          >
+            {{ msg.content }}
           </div>
-        } @else {
-          <div class="flex gap-3 animate-slide-in">
-            <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center shrink-0 mt-0.5">
-              <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-            </div>
-            <div class="flex-1 min-w-0 space-y-2">
-              <div
-                class="px-4 py-2.5 rounded-2xl rounded-bl-sm text-sm leading-relaxed"
-                [ngClass]="msg.category === 'Error'
-                  ? 'bg-destructive/10 border border-destructive/20 text-destructive'
-                  : 'bg-accent border border-border text-foreground/90'"
+
+          @if (msg.role === 'assistant' && msg.category !== 'Error') {
+            <div class="flex items-center flex-wrap gap-2 mt-1.5 px-1 text-[11px] text-slate-500">
+              <span>{{ msg.timestamp }}</span>
+              @if (msg.rag_used && msg.category) {
+                <span class="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-500/20 text-purple-400 font-semibold tracking-wide text-[9px] uppercase">
+                  RAG: {{ msg.category }}
+                </span>
+              }
+              <button
+                type="button"
+                (click)="copyMessage(msgIdx, msg.content)"
+                class="inline-flex items-center gap-1 p-1 rounded hover:bg-slate-800 text-slate-500 hover:text-slate-300 transition-colors cursor-pointer"
               >
-                {{ msg.content }}
-              </div>
-              @if (msg.category !== 'Error') {
-                <div class="flex items-center flex-wrap gap-2 px-0.5">
-                  <span class="text-[11px] text-muted-foreground">{{ msg.timestamp }}</span>
-                  @if (msg.rag_used && msg.category) {
-                    <span class="text-[10px] font-medium px-2 py-0.5 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20">{{ msg.category }}</span>
-                  }
-                  <button
-                    type="button"
-                    (click)="copyMessage(msgIdx, msg.content)"
-                    class="inline-flex items-center gap-1 p-1 rounded-md hover:bg-accent text-muted-foreground hover:text-foreground transition-colors cursor-pointer text-[11px]"
-                    [title]="copiedIndex() === msgIdx ? 'Copied!' : 'Copy response'"
-                  >
-                    @if (copiedIndex() === msgIdx) {
-                      <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                      Copied
-                    } @else {
-                      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                      Copy
-                    }
-                  </button>
-                  @if (!msg.rating) {
-                    <div class="flex items-center gap-1 ml-auto">
-                      @for (r of ratings; track r.value) {
-                        <button
-                          type="button"
-                          (click)="rateMessage(msgIdx, r.value)"
-                          [title]="r.label"
-                          class="p-1.5 rounded-md hover:bg-violet-500/10 hover:scale-110 transition-all cursor-pointer text-base leading-none"
-                        >{{ r.emoji }}</button>
-                      }
-                    </div>
-                  } @else {
-                    <span class="text-[11px] text-muted-foreground ml-auto">Rated: {{ msg.rating }}</span>
+                @if (copiedIndex() === msgIdx) {
+                  <span class="text-emerald-400">Copied</span>
+                } @else {
+                  Copy
+                }
+              </button>
+              @if (!msg.rating) {
+                <div class="flex items-center gap-1 ml-auto">
+                  @for (r of ratings; track r.value) {
+                    <button
+                      type="button"
+                      (click)="rateMessage(msgIdx, r.value)"
+                      [title]="r.label"
+                      class="p-1 rounded hover:bg-slate-800 transition-colors cursor-pointer text-sm hover:scale-110"
+                    >{{ r.emoji }}</button>
                   }
                 </div>
+              } @else {
+                <span class="ml-auto text-slate-500">Rated: {{ msg.rating }}</span>
               }
             </div>
-          </div>
-        }
+          } @else if (msg.role === 'user') {
+            <span class="mt-1 px-1 text-[11px] text-slate-500 self-end">{{ msg.timestamp }}</span>
+          }
+        </div>
       }
 
       @if (isLoading()) {
-        <div class="flex gap-3 animate-slide-in">
-          <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center shrink-0 mt-0.5">
-            <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-          </div>
-          <div class="px-5 py-4 rounded-2xl rounded-bl-sm bg-slate-900 border border-slate-800 shadow-md flex items-center gap-2">
+        <div class="self-start flex flex-col max-w-[80%] animate-slide-in">
+          <div class="px-5 py-4 rounded-2xl rounded-bl-none bg-slate-900 border border-slate-800 shadow-md flex items-center gap-2">
             <div class="flex space-x-1.5">
               <div class="w-2 h-2 bg-purple-500 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
               <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.25s"></div>
               <div class="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
             </div>
           </div>
+          <span class="mt-1 px-1 text-[10px] text-slate-500 italic">Thinking...</span>
         </div>
       }
     </div>
   </div>
 
-  <div class="shrink-0 border-t border-border bg-background/90 backdrop-blur-md p-3 sm:p-4">
-    <div class="max-w-2xl mx-auto">
-      @if (inputError()) {
-        <p class="mb-2 text-xs text-amber-400 text-center">{{ inputError() }}</p>
-      }
-      <form (ngSubmit)="sendMessage(); $event.preventDefault()" class="flex items-end gap-2">
-        <textarea
-          rows="1"
-          name="query"
-          [(ngModel)]="userQuery"
-          [disabled]="isLoading() || systemStatus() === 'offline'"
-          placeholder="Message UniSupport AI..."
-          (keydown.enter)="onEnter($event)"
-          class="flex-1 resize-none bg-input border border-border rounded-xl px-4 py-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:border-violet-500/50 transition-all disabled:opacity-50 min-h-[48px] max-h-32"
-        ></textarea>
-        <button
-          type="submit"
-          [disabled]="!userQuery().trim() || isLoading() || systemStatus() === 'offline'"
-          class="shrink-0 w-11 h-11 rounded-xl bg-violet-600 hover:bg-violet-500 text-white flex items-center justify-center transition-all disabled:opacity-30 disabled:pointer-events-none cursor-pointer active:scale-95"
-        >
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </form>
-    </div>
-  </div>
+  <footer class="shrink-0 p-4 sm:p-6 border-t border-slate-900 bg-slate-950">
+    @if (inputError()) {
+      <p class="max-w-4xl mx-auto mb-2 text-xs text-amber-400 px-2">{{ inputError() }}</p>
+    }
+    <form (ngSubmit)="sendMessage(); $event.preventDefault()" class="max-w-4xl mx-auto flex gap-3">
+      <input
+        type="text"
+        name="query"
+        [(ngModel)]="userQuery"
+        [disabled]="isLoading() || systemStatus() === 'offline'"
+        placeholder="Type a message to reply..."
+        class="flex-1 min-w-0 bg-slate-900 border border-slate-800 hover:border-slate-700 focus:border-purple-500 outline-none rounded-full px-5 sm:px-6 py-3.5 sm:py-4 text-sm text-slate-100 placeholder-slate-500 transition-all shadow-inner focus:ring-1 focus:ring-purple-500/20"
+      />
+      <button
+        type="submit"
+        [disabled]="!userQuery().trim() || isLoading() || systemStatus() === 'offline'"
+        class="shrink-0 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full p-3.5 sm:p-4 flex items-center justify-center shadow-lg hover:from-purple-500 hover:to-blue-500 transition-all hover:scale-105 active:scale-95 disabled:opacity-40 disabled:scale-100 disabled:pointer-events-none cursor-pointer"
+      >
+        <svg class="w-5 h-5 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+      </button>
+    </form>
+  </footer>
 </div>

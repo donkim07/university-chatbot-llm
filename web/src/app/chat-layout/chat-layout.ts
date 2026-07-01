@@ -5,6 +5,7 @@ import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router
 import { filter } from 'rxjs/operators';
 import { ChatService } from '../services/chat.service';
 import { AuthService } from '../services/auth.service';
+import { formatLocalDate } from '../lib/time';
 
 @Component({
   selector: 'app-chat-layout',
@@ -38,6 +39,16 @@ export class ChatLayout implements OnInit {
     const session = this.sessions().find((s) => s.id === id);
     return session?.title ?? 'Chat';
   });
+
+  protected readonly currentSession = computed(() => {
+    const id = this.currentSessionId();
+    if (!id) return null;
+    return this.sessions().find((s) => s.id === id) ?? null;
+  });
+
+  protected formatSessionDate(iso: string): string {
+    return formatLocalDate(iso);
+  }
 
   ngOnInit(): void {
     this.chatService.checkSystemHealth();
