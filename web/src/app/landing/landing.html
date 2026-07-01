@@ -8,8 +8,8 @@
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <!-- Left: copy -->
         <div class="space-y-8 animate-fade-in">
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-violet-500/25 bg-violet-500/10 text-violet-300 text-xs font-medium">
-            <span class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse-dot"></span>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-purple-500/25 bg-purple-500/10 text-purple-300 text-xs font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse-dot"></span>
             UDSM Student Support · Self-hosted AI
           </div>
 
@@ -24,9 +24,9 @@
 
           <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto items-stretch sm:items-center">
             @if (auth.isAuthenticated()) {
-              <ui-button routerLink="/app" size="lg" class="glow-violet" label="Continue to Chat →" />
+              <ui-button routerLink="/app" size="lg" class="glow-purple" label="Continue to Chat →" />
             } @else {
-              <ui-button routerLink="/register" size="lg" class="glow-violet" label="Get started free" />
+              <ui-button routerLink="/register" size="lg" class="glow-purple" label="Get started free" />
               <ui-button routerLink="/login" variant="outline" size="lg" label="Sign in" />
             }
           </div>
@@ -45,7 +45,7 @@
 
         <!-- Right: demo chat preview -->
         <div class="relative animate-fade-in" style="animation-delay: 0.15s">
-          <div class="absolute -inset-4 bg-gradient-to-r from-violet-600/20 to-indigo-600/20 rounded-3xl blur-2xl"></div>
+          <div class="absolute -inset-4 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-3xl blur-2xl"></div>
           <div class="relative rounded-2xl border border-border/80 bg-card/90 backdrop-blur-sm overflow-hidden shadow-2xl shadow-black/40">
             <!-- Window chrome -->
             <div class="flex items-center gap-2 px-4 py-3 border-b border-border bg-surface">
@@ -61,13 +61,13 @@
               @for (msg of demoMessages; track $index) {
                 @if (msg.role === 'user') {
                   <div class="flex justify-end">
-                    <div class="max-w-[85%] px-4 py-2.5 rounded-2xl rounded-br-sm bg-violet-600 text-white text-sm leading-relaxed">
+                    <div class="max-w-[85%] px-4 py-2.5 rounded-2xl rounded-br-sm bg-gradient-to-br from-purple-600 to-blue-600 text-white text-sm leading-relaxed">
                       {{ msg.text }}
                     </div>
                   </div>
                 } @else {
                   <div class="flex gap-2.5">
-                    <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center shrink-0 mt-0.5">
+                    <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center shrink-0 mt-0.5">
                       <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
                     </div>
                     <div class="space-y-1.5 max-w-[85%]">
@@ -75,7 +75,7 @@
                         {{ msg.text }}
                       </div>
                       @if (msg.tag) {
-                        <span class="inline-block text-[10px] font-medium px-2 py-0.5 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20">{{ msg.tag }}</span>
+                        <span class="inline-block text-[10px] font-medium px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">{{ msg.tag }}</span>
                       }
                     </div>
                   </div>
@@ -83,7 +83,7 @@
               }
               <!-- Typing indicator -->
               <div class="flex gap-2.5 items-center">
-                <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center shrink-0">
+                <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center shrink-0">
                   <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
                 </div>
                 <div class="px-5 py-3.5 rounded-2xl rounded-bl-sm bg-slate-900 border border-slate-800 shadow-md flex items-center">
@@ -110,10 +110,10 @@
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         @for (feature of features; track feature.title) {
-          <div class="group relative p-5 rounded-2xl border border-border/80 bg-gradient-to-b from-card/80 to-card/40 hover:from-card hover:to-card hover:border-violet-500/30 transition-all duration-300 overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-violet-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+          <div class="group relative p-5 rounded-2xl border border-border/80 bg-gradient-to-b from-card/80 to-card/40 hover:from-card hover:to-card hover:border-purple-500/30 transition-all duration-300 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             <div class="relative">
-              <div class="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-lg mb-3 group-hover:scale-105 transition-transform">{{ feature.icon }}</div>
+              <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-lg mb-3 group-hover:scale-105 transition-transform">{{ feature.icon }}</div>
               <h3 class="font-semibold mb-1.5 text-[15px] text-foreground">{{ feature.title }}</h3>
               <p class="text-sm text-muted-foreground leading-relaxed">{{ feature.description }}</p>
             </div>
@@ -129,8 +129,8 @@
       <h2 class="text-xl sm:text-2xl font-bold">Covers all major campus topics</h2>
       <div class="flex flex-wrap justify-center gap-2 sm:gap-2.5">
         @for (topic of topics; track topic) {
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-violet-500/15 bg-violet-500/5 text-xs sm:text-sm text-muted-foreground hover:text-violet-300 hover:border-violet-500/35 hover:bg-violet-500/10 transition-all cursor-default">
-            <span class="w-1 h-1 rounded-full bg-violet-400/60"></span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-purple-500/15 bg-purple-500/5 text-xs sm:text-sm text-muted-foreground hover:text-purple-300 hover:border-purple-500/35 hover:bg-purple-500/10 transition-all cursor-default">
+            <span class="w-1 h-1 rounded-full bg-purple-400/60"></span>
             {{ topic }}
           </span>
         }
@@ -140,18 +140,18 @@
 
   <!-- CTA -->
   <section class="py-20 px-4 sm:px-6">
-    <div class="max-w-2xl mx-auto text-center p-10 sm:p-14 rounded-3xl border border-violet-500/20 bg-gradient-to-b from-violet-500/10 to-transparent relative overflow-hidden">
+    <div class="max-w-2xl mx-auto text-center p-10 sm:p-14 rounded-3xl border border-purple-500/20 bg-gradient-to-b from-purple-500/10 to-transparent relative overflow-hidden">
       <div class="absolute inset-0 grid-bg opacity-30 pointer-events-none"></div>
       <div class="relative space-y-6">
         <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Ready to get answers?</h2>
         <p class="text-muted-foreground">Join UniSupport AI and stop searching through PDFs and notice boards.</p>
         @if (auth.isAuthenticated()) {
           <div class="flex justify-center pt-2">
-            <ui-button routerLink="/app" size="lg" class="glow-violet max-w-xs" label="Open your chat →" />
+            <ui-button routerLink="/app" size="lg" class="glow-purple max-w-xs" label="Open your chat →" />
           </div>
         } @else {
           <div class="flex justify-center pt-2">
-            <ui-button routerLink="/register" size="lg" class="glow-violet max-w-xs" label="Create free account" />
+            <ui-button routerLink="/register" size="lg" class="glow-purple max-w-xs" label="Create free account" />
           </div>
         }
       </div>

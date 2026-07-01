@@ -63,6 +63,9 @@ export class ChatLayout implements OnInit {
   }
 
   protected toggleSidebar(): void {
+    if (!this.sidebarOpen() && this.sidebarCollapsed()) {
+      this.sidebarCollapsed.set(false);
+    }
     this.sidebarOpen.update((v) => !v);
   }
 

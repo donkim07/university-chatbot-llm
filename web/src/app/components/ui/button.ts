@@ -37,13 +37,13 @@ export class UiButton {
 
   private readonly variants: Record<ButtonVariant, string> = {
     default:
-      'bg-violet-600 text-white hover:bg-violet-500 shadow-sm shadow-violet-600/25 active:scale-[0.98]',
+      'bg-gradient-to-b from-purple-600 to-blue-600 text-white hover:from-purple-500 hover:to-blue-500 shadow-sm shadow-purple-500/20 active:scale-[0.98]',
     secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border',
     outline:
-      'border border-border bg-transparent hover:bg-accent hover:border-violet-500/30 text-foreground',
+      'border border-border bg-transparent hover:bg-accent hover:border-purple-500/30 text-foreground',
     ghost: 'hover:bg-accent text-muted-foreground hover:text-foreground',
     destructive: 'bg-destructive text-white hover:bg-destructive/90',
-    link: 'text-violet-400 underline-offset-4 hover:underline hover:text-violet-300',
+    link: 'text-purple-400 underline-offset-4 hover:underline hover:text-purple-300',
   };
 
   private readonly sizes: Record<ButtonSize, string> = {

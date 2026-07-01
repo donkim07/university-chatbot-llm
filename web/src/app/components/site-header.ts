@@ -12,7 +12,7 @@ import { UiButton } from './ui/button';
       <div class="max-w-6xl mx-auto px-3 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
         <a routerLink="/" class="flex items-center gap-2 sm:gap-3 group min-w-0 shrink">
           <div
-            class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-violet-500/20 shrink-0"
+            class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center shadow-lg shadow-purple-500/20 shrink-0"
           >
             <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -27,7 +27,7 @@ import { UiButton } from './ui/button';
           @if (auth.isAuthenticated()) {
             @if (auth.currentUser(); as user) {
               <div class="hidden md:flex items-center gap-2 mr-1 max-w-[120px] lg:max-w-[140px]">
-                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center text-[11px] font-bold text-white shrink-0">
+                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center text-[11px] font-bold text-white shrink-0">
                   {{ user.full_name.charAt(0).toUpperCase() }}
                 </div>
                 <span class="text-sm text-muted-foreground truncate">{{ user.full_name }}</span>
