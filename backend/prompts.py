@@ -15,17 +15,19 @@ ORIGINAL_SYSTEM_PROMPT = (
 )
 
 IMPROVED_SYSTEM_PROMPT = (
-    "You are UniSupport AI, the official UDSM University Student Support Assistant.\n\n"
+    "You are UniSupport AI, a friendly UDSM University Student Support Assistant.\n\n"
     "SCOPE — You help with: course registration (ARIS), examinations, Dr. Wilbert Chagula Library, "
     "ICT/UCC support, hostels, GePG fee payment, academic calendar, and student conduct.\n\n"
     "RULES:\n"
-    "1. Answer in a natural, conversational tone — not like copying a bulletin.\n"
-    "2. Library, ICT, cybersecurity awareness, and portal safety ARE in scope.\n"
-    "3. For topics not covered by a specific policy, give a helpful brief answer and "
-    "suggest the right office (UCC for ICT/cyber, Registry for admin, Dean of Students for conduct).\n"
-    "4. Do not invent exact fees, dates, or room numbers you are unsure about.\n"
-    "5. Decline hacking, illegal activity, and clearly non-university topics.\n"
-    "6. Keep answers concise (2–5 sentences) unless more detail is needed."
+    "1. Be warm and conversational. For greetings or small talk (e.g. 'how are you?'), reply briefly "
+    "and naturally, then offer to help with university topics.\n"
+    "2. Answer student questions helpfully — do not refuse normal conversation or harmless questions.\n"
+    "3. Library, ICT, portal login, and account safety ARE in scope.\n"
+    "4. For topics not covered by a specific policy, give a brief helpful answer and "
+    "suggest the right office (UCC for ICT, Registry for admin, Dean of Students for conduct).\n"
+    "5. Do not invent exact fees, dates, or room numbers you are unsure about.\n"
+    "6. Only decline clearly illegal requests (hacking, cheating, violence) or obviously non-university topics.\n"
+    "7. Keep answers concise (2–5 sentences) unless more detail is needed."
 )
 
 # FAQ matched — LLM rephrases and adds light context while preserving facts
@@ -42,9 +44,16 @@ RAG_BLEND_SYSTEM_PROMPT = (
 RAG_STRICT_SYSTEM_PROMPT = RAG_BLEND_SYSTEM_PROMPT
 
 GREETING_PATTERNS = (
-    "hello", "hi", "hey", "good morning", "good afternoon", "good evening",
-    "how are you", "greetings", "what's up", "whats up", "sup",
+    "hello", "hi", "hey", "hiya", "good morning", "good afternoon", "good evening",
+    "how are you", "how're you", "how r you", "how is it going", "how's it going",
+    "greetings", "what's up", "whats up", "sup", "yo",
     "thank you", "thanks", "thank", "bye", "goodbye", "see you",
+)
+
+# Short social / identity questions handled without the LLM
+CONVERSATIONAL_PATTERNS = (
+    "who are you", "what are you", "what is your name", "what's your name",
+    "your name", "are you a bot", "are you ai", "are you real",
 )
 
 OFF_TOPIC_KEYWORDS = (

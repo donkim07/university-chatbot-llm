@@ -10,6 +10,7 @@ from backend.prompts import (
     IMPROVED_SYSTEM_PROMPT,
     RAG_BLEND_SYSTEM_PROMPT,
     GREETING_PATTERNS,
+    CONVERSATIONAL_PATTERNS,
     OFF_TOPIC_KEYWORDS,
 )
 
@@ -209,16 +210,28 @@ class LLMClient:
         }
 
     def _normalize(self, text: str) -> str:
-        return re.sub(r"\s+", " ", text.lower().strip())
+        text = re.sub(r"\s+", " ", text.lower().strip())
+        return text.strip(string.punctuation + "…").strip()
+
+    def _matches_any(self, q: str, patterns: tuple) -> bool:
+        if not q:
+            return False
+        return any(
+            q == p or q.startswith(p + " ") or q.startswith(p + "!")
+            for p in patterns
+        )
 
     def _is_greeting(self, question: str) -> bool:
         q = self._normalize(question)
         if len(q.split()) > 8:
             return False
-        return any(
-            q == p or q.startswith(p + " ") or q.startswith(p + "!") or q.startswith(p + ",")
-            for p in GREETING_PATTERNS
-        )
+        return self._matches_any(q, GREETING_PATTERNS)
+
+    def _is_conversational(self, question: str) -> bool:
+        q = self._normalize(question)
+        if len(q.split()) > 10:
+            return False
+        return self._matches_any(q, CONVERSATIONAL_PATTERNS)
 
     def _is_off_topic(self, question: str) -> bool:
         q = self._normalize(question)
@@ -226,19 +239,40 @@ class LLMClient:
 
     def _greeting_reply(self, question: str) -> str:
         q = self._normalize(question)
-        if any(w in q for w in ("thank", "thanks", "bye", "goodbye", "see you")):
-            if "bye" in q or "goodbye" in q or "see you" in q:
-                return (
-                    "Goodbye! Feel free to return anytime you need help with course registration, "
-                    "exams, library, ICT, hostels, fees, or other university services."
-                )
+        if any(w in q for w in ("thank", "thanks")):
             return "You're welcome! Let me know if you have any other university-related questions."
+        if any(w in q for w in ("bye", "goodbye", "see you")):
+            return (
+                "Goodbye! Feel free to return anytime you need help with course registration, "
+                "exams, library, ICT, hostels, fees, or other university services."
+            )
+        if "how are you" in q or "how're you" in q or "how r you" in q or "how is it going" in q:
+            return (
+                "I'm doing well, thank you for asking! I'm UniSupport AI, your UDSM student support "
+                "assistant. I can help with registration, exams, the library, ICT, hostels, fees, "
+                "and more. What would you like to know?"
+            )
 
         return (
             "Hello! I'm UniSupport AI, your University Student Support Assistant. "
             "I can help with course registration, examinations, the library, ICT support, "
             "hostels, fees, the academic calendar, and student conduct. How can I help you today?"
         )
+
+    def _conversational_reply(self, question: str) -> str:
+        q = self._normalize(question)
+        if "name" in q or "who are you" in q or "what are you" in q:
+            return (
+                "I'm UniSupport AI — the UDSM student support chatbot. I help with course registration, "
+                "exams, library services, ICT, hostels, fees, and other campus questions. "
+                "What can I help you with?"
+            )
+        if "bot" in q or " ai" in f" {q} " or q.endswith(" ai"):
+            return (
+                "Yes — I'm an AI assistant built to help UDSM students with official university services. "
+                "Ask me anything about registration, exams, library, ICT, hostels, or fees!"
+            )
+        return self._greeting_reply(question)
 
     def _off_topic_reply(self) -> str:
         return (
@@ -318,6 +352,14 @@ class LLMClient:
                 "matched_faq": None,
             }
 
+        if self._is_conversational(question):
+            return {
+                "answer": self._conversational_reply(question),
+                "category": "Greeting",
+                "rag_used": False,
+                "matched_faq": None,
+            }
+
         if self._is_off_topic(question):
             return {
                 "answer": self._off_topic_reply(),
@@ -368,9 +410,8 @@ class LLMClient:
                 )
                 user_content = (
                     f"The student asked a question that did not closely match any official FAQ entry.\n"
-                    f"Answer thoughtfully based on general UDSM student services knowledge.\n"
-                    f"For ICT, cybersecurity, or portal topics, mention the University Computing Centre (UCC).\n"
-                    f"Do not invent specific fees or dates. If unsure, suggest the right office.\n\n"
+                    f"Answer helpfully based on general UDSM student services knowledge.\n"
+                    f"If unsure about specific fees or dates, say so and suggest the right office.\n\n"
                     f"Student question: {question}"
                 )
                 reply = await self._call_llm(
@@ -378,7 +419,7 @@ class LLMClient:
                     IMPROVED_SYSTEM_PROMPT,
                     user_content,
                     history,
-                    temperature=0.5,
+                    temperature=0.55,
                 )
 
             return {
