@@ -11,7 +11,18 @@
       "how to enroll in classes this semester",
       "how to register for courses"
     ],
-    "keywords": ["register", "registration", "aris", "courses", "deadline", "portal", "add", "drop", "semester", "tzs"]
+    "keywords": [
+      "register",
+      "registration",
+      "aris",
+      "courses",
+      "deadline",
+      "portal",
+      "add",
+      "drop",
+      "semester",
+      "tzs"
+    ]
   },
   {
     "category": "Course Registration",
@@ -23,7 +34,17 @@
       "swap a course mid semester",
       "withdraw from a class on aris"
     ],
-    "keywords": ["add", "drop", "swap", "withdraw", "change", "courses", "weeks", "semester", "aris"]
+    "keywords": [
+      "add",
+      "drop",
+      "swap",
+      "withdraw",
+      "change",
+      "courses",
+      "weeks",
+      "semester",
+      "aris"
+    ]
   },
   {
     "category": "Course Registration",
@@ -34,7 +55,15 @@
       "missed registration deadline aris",
       "register after deadline penalty"
     ],
-    "keywords": ["late", "fee", "deadline", "registration", "50000", "penalty", "aris"]
+    "keywords": [
+      "late",
+      "fee",
+      "deadline",
+      "registration",
+      "50000",
+      "penalty",
+      "aris"
+    ]
   },
   {
     "category": "Examination Rules",
@@ -48,7 +77,20 @@
       "supplementary exams rules",
       "carryover course"
     ],
-    "keywords": ["grade", "grading", "gpa", "fail", "failed", "retake", "pass", "marks", "supplementary", "supp", "carryover", "discontinuation"]
+    "keywords": [
+      "grade",
+      "grading",
+      "gpa",
+      "fail",
+      "failed",
+      "retake",
+      "pass",
+      "marks",
+      "supplementary",
+      "supp",
+      "carryover",
+      "discontinuation"
+    ]
   },
   {
     "category": "Examination Rules",
@@ -60,7 +102,18 @@
       "medical excuse for exam udsm",
       "udsm health centre medical report"
     ],
-    "keywords": ["miss", "missed", "illness", "sick", "medical", "exam", "special", "absent", "incomplete", "health centre"]
+    "keywords": [
+      "miss",
+      "missed",
+      "illness",
+      "sick",
+      "medical",
+      "exam",
+      "special",
+      "absent",
+      "incomplete",
+      "health centre"
+    ]
   },
   {
     "category": "Examination Rules",
@@ -72,7 +125,16 @@
       "plagiarism rules",
       "caught with a phone in exam room"
     ],
-    "keywords": ["cheat", "cheating", "plagiarism", "misconduct", "exam", "disciplinary", "discontinuation", "by-laws"]
+    "keywords": [
+      "cheat",
+      "cheating",
+      "plagiarism",
+      "misconduct",
+      "exam",
+      "disciplinary",
+      "discontinuation",
+      "by-laws"
+    ]
   },
   {
     "category": "Examination Rules",
@@ -84,7 +146,15 @@
       "examination dates mlimani",
       "revision week dates"
     ],
-    "keywords": ["exam", "examination", "timetable", "final", "almanac", "revision", "aris"]
+    "keywords": [
+      "exam",
+      "examination",
+      "timetable",
+      "final",
+      "almanac",
+      "revision",
+      "aris"
+    ]
   },
   {
     "category": "Library Services",
@@ -97,7 +167,16 @@
       "book loan period udsm",
       "library fine for late return"
     ],
-    "keywords": ["library", "books", "borrow", "loan", "renew", "overdue", "fine", "chagula"]
+    "keywords": [
+      "library",
+      "books",
+      "borrow",
+      "loan",
+      "renew",
+      "overdue",
+      "fine",
+      "chagula"
+    ]
   },
   {
     "category": "Library Services",
@@ -108,7 +187,14 @@
       "chagula library hours",
       "library closing time mlimani"
     ],
-    "keywords": ["library", "hours", "open", "closing", "schedule", "chagula"]
+    "keywords": [
+      "library",
+      "hours",
+      "open",
+      "closing",
+      "schedule",
+      "chagula"
+    ]
   },
   {
     "category": "ICT Support",
@@ -121,7 +207,18 @@
       "cannot login to aris",
       "ucc helpdesk location"
     ],
-    "keywords": ["wifi", "wi-fi", "password", "aris", "login", "ict", "helpdesk", "email", "ucc", "computing"]
+    "keywords": [
+      "wifi",
+      "wi-fi",
+      "password",
+      "aris",
+      "login",
+      "ict",
+      "helpdesk",
+      "email",
+      "ucc",
+      "computing"
+    ]
   },
   {
     "category": "ICT Support",
@@ -133,7 +230,15 @@
       "e-learning platform moodle",
       "how to log into moodle udsm"
     ],
-    "keywords": ["aris", "lms", "e-learning", "moodle", "login", "dashboard", "udsm.ac.tz"]
+    "keywords": [
+      "aris",
+      "lms",
+      "e-learning",
+      "moodle",
+      "login",
+      "dashboard",
+      "udsm.ac.tz"
+    ]
   },
   {
     "category": "Hostel Application",
@@ -146,7 +251,18 @@
       "how to get a room on campus",
       "apply for hall of residence"
     ],
-    "keywords": ["hostel", "accommodation", "dorm", "room", "fee", "mabibo", "magufuli", "hall", "apply", "gepg"]
+    "keywords": [
+      "hostel",
+      "accommodation",
+      "dorm",
+      "room",
+      "fee",
+      "mabibo",
+      "magufuli",
+      "hall",
+      "apply",
+      "gepg"
+    ]
   },
   {
     "category": "Hostel Application",
@@ -157,7 +273,16 @@
       "allowed items in mabibo",
       "prohibited items in magufuli hostels"
     ],
-    "keywords": ["hostel", "bring", "items", "rules", "prohibited", "cooking", "mabibo", "hall"]
+    "keywords": [
+      "hostel",
+      "bring",
+      "items",
+      "rules",
+      "prohibited",
+      "cooking",
+      "mabibo",
+      "hall"
+    ]
   },
   {
     "category": "Fee Payment",
@@ -170,7 +295,18 @@
       "can i pay fees in installments",
       "how much to pay to register"
     ],
-    "keywords": ["fees", "tuition", "payment", "instalment", "installment", "control number", "gepg", "bank", "exam card", "50"]
+    "keywords": [
+      "fees",
+      "tuition",
+      "payment",
+      "instalment",
+      "installment",
+      "control number",
+      "gepg",
+      "bank",
+      "exam card",
+      "50"
+    ]
   },
   {
     "category": "Fee Payment",
@@ -181,7 +317,15 @@
       "proof of payment tuition udsm",
       "bursar office receipt control number"
     ],
-    "keywords": ["receipt", "proof", "payment", "bursar", "finance", "aris", "gepg"]
+    "keywords": [
+      "receipt",
+      "proof",
+      "payment",
+      "bursar",
+      "finance",
+      "aris",
+      "gepg"
+    ]
   },
   {
     "category": "Academic Calendar",
@@ -193,7 +337,15 @@
       "academic year calendar almanac",
       "when do exams start at udsm"
     ],
-    "keywords": ["calendar", "semester", "almanac", "dus", "break", "lectures", "orientation"]
+    "keywords": [
+      "calendar",
+      "semester",
+      "almanac",
+      "dus",
+      "break",
+      "lectures",
+      "orientation"
+    ]
   },
   {
     "category": "Student Conduct",
@@ -205,7 +357,17 @@
       "lost id card replacement fee",
       "what not to wear on campus"
     ],
-    "keywords": ["dress", "code", "id", "card", "conduct", "security", "campus", "decent", "loss report"]
+    "keywords": [
+      "dress",
+      "code",
+      "id",
+      "card",
+      "conduct",
+      "security",
+      "campus",
+      "decent",
+      "loss report"
+    ]
   },
   {
     "category": "Student Conduct",
@@ -216,7 +378,15 @@
       "student misconduct complaint",
       "dean of students office location"
     ],
-    "keywords": ["harassment", "misconduct", "report", "complaint", "conduct", "dean", "security"]
+    "keywords": [
+      "harassment",
+      "misconduct",
+      "report",
+      "complaint",
+      "conduct",
+      "dean",
+      "security"
+    ]
   },
   {
     "category": "General University Support",
@@ -228,6 +398,700 @@
       "help me with university questions",
       "udsm support topics"
     ],
-    "keywords": ["help", "support", "topics", "services", "assist", "udsm", "aris"]
+    "keywords": [
+      "help",
+      "support",
+      "topics",
+      "services",
+      "assist",
+      "udsm",
+      "aris"
+    ]
+  },
+  {
+    "category": "University Overview",
+    "question": "What is the University of Dar es Salaam (UDSM)?",
+    "answer": "The University of Dar es Salaam (UDSM) is the oldest and largest public university in Tanzania. Established on 25 October 1961, shortly before Tanzania gained independence, it has grown into one of the country's leading institutions for higher education, research, innovation, and community engagement. The university is recognized nationally and internationally for producing graduates who contribute to government, industry, business, education, healthcare, science, engineering, law, and many other sectors.\n\nThe main campus, officially known as the Mwalimu Julius Nyerere Mlimani Campus, is located approximately 13 kilometres west of the Dar es Salaam city centre. The campus occupies about 1,625 acres and provides an environment designed for learning, research, recreation, and student life. Besides the main campus, UDSM operates colleges, schools, institutes, centres, and constituent colleges in different locations within Tanzania.\n\nUDSM offers a wide range of academic programmes including certificates, diplomas, bachelor's degrees, postgraduate diplomas, master's degrees, PhDs, and professional programmes. Students can pursue studies in fields such as Engineering, Information and Communication Technology, Law, Business, Economics, Education, Natural Sciences, Social Sciences, Humanities, Journalism, Aquatic Sciences, Agriculture, Health-related disciplines, and many others.\n\nThe university places strong emphasis on research and innovation. Through its colleges, institutes, innovation centres, and research partnerships, students and staff participate in projects that address national and global challenges. Entrepreneurship and innovation are also encouraged through dedicated innovation and entrepreneurship programmes that help students transform ideas into practical solutions and businesses.\n\nStudent life at UDSM extends beyond academics. Students have opportunities to participate in student governance through DARUSO, join academic and professional associations, participate in sports and recreational activities, engage in cultural and religious organizations, volunteer in community outreach programmes, and take part in leadership development activities.\n\nThe university also provides a wide range of student support services including libraries, ICT services, computer laboratories, Wi-Fi connectivity, accommodation, healthcare, counselling, transport services, cafeterias, bookshops, banking facilities, printing and photocopying services, and security services. These services are intended to create a supportive learning environment for both local and international students.\n\nToday, UDSM continues to pursue excellence in teaching, research, innovation, and public service while collaborating with universities, industries, governments, and international organizations around the world. It remains one of East Africa's most respected universities and attracts students from Tanzania and many other countries.",
+    "aliases": [
+      "Tell me about UDSM",
+      "What kind of university is UDSM?",
+      "Give me information about UDSM",
+      "Introduction to UDSM",
+      "About the university"
+    ],
+    "keywords": [
+      "UDSM",
+      "University of Dar es Salaam",
+      "overview",
+      "history",
+      "public university",
+      "Mlimani",
+      "about UDSM",
+      "campus"
+    ]
+  },
+  {
+    "category": "Academic Programmes and Courses",
+    "question": "What courses and academic programmes are offered at the University of Dar es Salaam (UDSM)?",
+    "answer": "The University of Dar es Salaam (UDSM) offers a wide range of academic programmes at undergraduate, postgraduate, and research levels. The programmes cover different fields including information and communication technologies, engineering, natural sciences, social sciences, humanities, business, law, education, and other specialized areas. Students can choose programmes based on their academic qualifications, interests, and career goals.\n\nUDSM programmes are offered through different colleges, schools, institutes, and academic units. Each academic unit specializes in specific areas of knowledge and provides programmes designed to develop professional skills, research capabilities, and practical knowledge required in different industries.\n\nAt undergraduate level, UDSM offers bachelor's degree programmes that normally take between three and five years depending on the field of study. The duration depends on programme requirements, professional regulations, practical training components, and academic structure.\n\nAt postgraduate level, UDSM offers master's degree programmes, doctoral programmes, postgraduate diplomas, and other advanced academic qualifications. Postgraduate studies allow students to specialize further in their fields, conduct research, and develop advanced professional expertise.\n\nThe University of Dar es Salaam includes several major academic areas:\n\nCollege of Information and Communication Technologies (CoICT):\n\nCoICT focuses on computing, information systems, communication technologies, and digital innovation. Programmes include areas such as Computer Science, Computer Engineering and Information Technology, Business Information Technology, Information Systems, Data Science, Health Informatics, and other ICT-related programmes. Students interested in software development,telecommunication,electronic engineering and science and technology can find programmes within this college. \n\nCollege of Engineering and Technology (CoET):\n\nCoET provides engineering programmes covering areas such as civil engineering, electrical engineering, mechanical engineering, chemical engineering, structural engineering, and other engineering disciplines. The college focuses on producing engineers capable of solving technical and industrial challenges.\n\nCollege of Natural and Applied Sciences (CoNAS):\n\nCoNAS offers programmes related to sciences, mathematics, computing-related sciences, environmental studies, biology, chemistry, physics, and other scientific disciplines. These programmes prepare students for careers in research, industry, education, and scientific innovation.\n\nCollege of Social Sciences (CoSS):\n\nCoSS provides programmes related to economics, political science, sociology, anthropology, public administration, geography, statistics, and other social science fields. These programmes focus on understanding society, governance, development, and human behaviour.\n\nCollege of Humanities (CoHU):\n\nCoHU offers programmes related to languages, history, archaeology, literature, arts, culture, philosophy, heritage studies, and other humanities disciplines. These programmes focus on human culture, communication, creativity, and social understanding.\n\nSchool of Law:\n\nThe School of Law provides legal education and professional training through programmes such as Bachelor of Laws (LLB) and postgraduate legal programmes. Students study areas including constitutional law, commercial law, international law, criminal law, and other legal fields.\n\nUniversity of Dar es Salaam Business School (UDBS):\n\nUDBS offers programmes related to business, management, accounting, finance, marketing, entrepreneurship, and organizational leadership. These programmes prepare students for careers in business organizations, government institutions, and entrepreneurship.\n\nSchool of Education:\n\nThe School of Education provides programmes that prepare students for careers in teaching, educational management, psychology, curriculum development, and other education-related fields.\n\nUDSM also provides specialized programmes through institutes and centres that focus on specific areas such as development studies, marine sciences, Kiswahili studies, journalism, communication, and research.\n\nWhen choosing a programme at UDSM, students should consider several factors including their academic qualifications, subject background, interests, career plans, programme requirements, and future employment opportunities. Some programmes require specific subject combinations or minimum qualifications before admission.\n\nStudents can check available programmes through the official UDSM programme database and admission information platforms. Programme availability, admission requirements, duration, and fees may change between academic years, so applicants should always confirm the latest information before applying. \n\nStudents who are unsure about which programme to choose can seek guidance from academic departments, admission offices, career guidance services, or professionals in their areas of interest. Choosing the right programme is an important decision because it determines the academic journey and professional direction of the student.\n\nUDSM programmes are designed not only to provide theoretical knowledge but also to encourage research, innovation, practical skills development, and problem-solving abilities. Through its academic programmes, the university prepares students to contribute to Tanzania, Africa, and the global community.",
+    "aliases": [
+      "What courses are available at UDSM?",
+      "Which programmes does UDSM offer?",
+      "Does UDSM offer Computer Science?",
+      "What degrees can I study at UDSM?",
+      "What are the colleges at UDSM?",
+      "How many years does a degree take?",
+      "Which course should I choose at UDSM?",
+      "Does UDSM offer postgraduate programmes?",
+      "What programmes are available for students?"
+    ],
+    "keywords": [
+      "courses",
+      "programmes",
+      "degrees",
+      "undergraduate courses",
+      "postgraduate courses",
+      "bachelor programmes",
+      "master programmes",
+      "PhD programmes",
+      "certificate",
+      "diploma",
+      "college",
+      "school",
+      "institute",
+      "course duration",
+      "study programmes",
+      "academic fields",
+      "programme requirements",
+      "CoICT",
+      "engineering",
+      "business",
+      "law",
+      "science",
+      "education",
+      "humanities",
+      "social sciences"
+    ]
+  },
+  {
+    "category": "Student Accommodation",
+    "question": "How does student accommodation work at the University of Dar es Salaam (UDSM)?",
+    "answer": "The University of Dar es Salaam (UDSM) provides both on-campus and off-campus accommodation for students through the University Students Accommodation Bureau (USAB), a semi-independent unit under the Directorate of Students' Services. USAB is responsible for processing accommodation applications, allocating rooms, managing university hostels, and assisting students with accommodation-related matters.\n\nAccommodation at UDSM is limited because the number of available rooms is usually lower than the number of students applying each academic year. As a result, university accommodation is not guaranteed for every student. According to UDSM joining instructions and accommodation policies, priority is generally given to international students, students with disabilities, and other students with special circumstances. Other students are allocated rooms based on the university's accommodation procedures and the availability of space.\n\nThe main Mwalimu Julius Nyerere Mlimani Campus has seven halls of residence, commonly referred to as Hall I through Hall VII, including Judge Julie Manning Hall. In addition to these halls, UDSM manages several other accommodation facilities including the Hon. Dr. John Pombe Joseph Magufuli Hostels, Mabibo Hostels, Mikocheni Hostels, CoICT Hostels, Ubungo Hostels, and accommodation for some constituent colleges and campuses. Students studying at campuses such as DUCE, MUCE, IMS, and MCHAS also have accommodation facilities designated for those campuses.\n\nMabibo Hostels are located approximately four kilometres from the Mlimani Campus. They are among the largest university accommodation facilities and consist of six residential blocks with thousands of bed spaces. The hostels provide water, electricity, study rooms, common rooms, a cafeteria, a dispensary, sports facilities including football and basketball grounds, banking services, and security. To support students living there, the university provides transport between Mabibo Hostels and the Mlimani Campus for extended hours every day.\n\nThe Magufuli Hostels are located closer to the Mlimani Campus and consist of six accommodation blocks. These hostels provide furnished rooms, electricity, water supply, cafeterias, study areas, common rooms, and security services. They continue to expand in order to increase the number of available rooms.\n\nStudents enrolled at the College of Information and Communication Technologies (CoICT) may also be accommodated in CoICT Hostels located near the college. Other university-managed accommodation includes facilities at Ubungo, Kijitonyama, and Mikocheni for eligible students depending on availability and allocation.\n\nUniversity hostels are designed to provide students with a safe and convenient living environment that supports academic success. Most hostels provide furnished rooms, shared sanitation facilities, electricity, water, study spaces, security personnel, internet access in selected areas, cafeterias nearby, and access to university transport where applicable.\n\nStudents who are not allocated university accommodation are encouraged to seek private accommodation in areas surrounding the university such as Changanyikeni, Survey, Sinza, Makongo, Ubungo, Mikocheni, and Mwenge. These locations are popular because they offer relatively easy access to campus through public transportation and are commonly occupied by UDSM students.\n\nAccommodation fees are determined by the university and may vary depending on the hostel, the student's category, and whether the student is Tanzanian or international. Students should always consult the latest joining instructions, accommodation announcements, or USAB notices for current accommodation charges and application deadlines.\n\nStudents requiring accommodation should submit their applications during the period announced by USAB before the beginning of the academic year or semester. Because accommodation spaces are limited, students are encouraged to apply early and regularly monitor official UDSM communication channels for updates regarding room allocation, payment procedures, and accommodation regulations.",
+    "aliases": [
+      "Where can I stay at UDSM?",
+      "How do I get a hostel?",
+      "How do I apply for accommodation?",
+      "Tell me about UDSM hostels",
+      "Where do first year students stay?",
+      "Campus residence",
+      "Student housing",
+      "Accommodation services",
+      "USAB",
+      "Residence halls"
+    ],
+    "keywords": [
+      "hostel",
+      "hostels",
+      "hall",
+      "halls of residence",
+      "accommodation",
+      "housing",
+      "room allocation",
+      "USAB",
+      "Hall I",
+      "Hall II",
+      "Hall III",
+      "Hall IV",
+      "Hall V",
+      "Hall VI",
+      "Hall VII",
+      "Judge Julie Manning Hall",
+      "Magufuli Hostel",
+      "Mabibo Hostel",
+      "Mikocheni Hostel",
+      "CoICT Hostel",
+      "Ubungo Hostel",
+      "Kijitonyama Hostel",
+      "student residence",
+      "campus housing",
+      "off-campus accommodation"
+    ]
+  },
+  {
+    "category": "Student Portal (ARIS 3)",
+    "question": "What is ARIS 3 and how do I use the University of Dar es Salaam Student Portal?",
+    "answer": "ARIS 3, which stands for Academic Registration Information System Version 3, is the official online student information system used by the University of Dar es Salaam (UDSM). It is the primary digital platform through which students, lecturers, administrators, and other authorized users manage academic and administrative activities. Nearly every student interacts with ARIS 3 throughout their studies, making it one of the most important university systems. Instead of visiting multiple university offices to complete academic processes, students can perform many of these activities online through a single secure portal.\n\nThe system is used by undergraduate, postgraduate, continuing education, and in some cases alumni users depending on the service required. New students normally create or activate their accounts after admission and use the same account throughout their studies. Students should keep their login credentials secure because the account provides access to personal information, financial records, academic records, and other confidential university services.\n\nOne of the most important functions of ARIS 3 is semester and course registration. At the beginning of every semester, students are expected to register for the semester and enroll in the courses they intend to study according to their programme structure. Registration should always be completed within the official registration period announced in the academic calendar. Failure to register on time may lead to late registration penalties or prevent a student from attending classes and sitting for examinations. Students should carefully verify that all selected courses are correct before submitting their registration because registered courses become part of their official academic record.\n\nARIS 3 is also the university's official platform for managing tuition and other university payments. Students can generate payment control numbers for tuition fees, accommodation fees, transcript requests, graduation charges, and other approved services. After payment is made through approved banks or electronic payment channels, the payment status is normally updated within the system, allowing students to monitor their financial records without visiting university offices.\n\nAcademic performance is another major feature of ARIS 3. Students can view examination results, coursework results where available, semester performance, Grade Point Average (GPA), Cumulative Grade Point Average (CGPA), academic progress, and registration history. Since these records are official university records, students are encouraged to review them regularly and report any discrepancies through the appropriate academic offices.\n\nThe portal also allows students to maintain their personal profile by updating contact information, addresses, emergency contacts, and other personal details where permitted. Keeping this information accurate helps the university communicate important announcements and ensures student records remain current.\n\nMany administrative services are integrated into ARIS 3. Depending on a student's programme and level of study, these services may include transcript requests, graduation applications, hostel or accommodation applications, research supervision management for postgraduate students, dissertation and thesis progress monitoring, proposal submission, examination arrangements, and other academic workflows. Recent versions of ARIS 3 also support online supervision activities for postgraduate research students, enabling communication between students and supervisors throughout the research process.\n\nStudents should make it a habit to log into ARIS 3 regularly rather than waiting until important deadlines. During course registration periods, examination result releases, fee payment deadlines, and graduation application periods, many students access the system simultaneously, which may result in slower response times. Completing important academic activities early helps avoid unnecessary delays and reduces the risk of missing university deadlines.\n\nIf a student forgets their password or experiences login difficulties, they should use the available password recovery options if provided or seek assistance from the University's ICT support services. Students should never share their passwords with friends or other individuals because the account contains sensitive academic and financial information. Logging out after using shared computers and using strong passwords are recommended security practices.\n\nARIS 3 works alongside the UDSM Access Portal, which provides a centralized gateway to various university digital services. Through the Access Portal, authorized users can access systems such as ARIS 3, the Learning Management System (LMS), Library services, Admission systems, Research Information Management System (RIMS), CONRIS, OPRAS, Safari, and other institutional platforms using secure authentication. Together these systems form the digital infrastructure that supports teaching, learning, research, administration, and student services across the University of Dar es Salaam.\n\nEvery UDSM student should become familiar with ARIS 3 during their first semester because it serves as the official source for academic registration, fee management, examination records, transcript services, graduation processes, research management, and many other essential university services. Students are encouraged to regularly monitor announcements published through university communication channels and always complete academic activities using official UDSM systems.",
+    "aliases": [
+      "How do I log into ARIS 3?",
+      "What is the UDSM student portal?",
+      "How do I register courses online?",
+      "How can I check my examination results?",
+      "How do I generate a control number?",
+      "How do I request a transcript?",
+      "How do I recover my ARIS password?",
+      "Where do I update my profile?",
+      "How do I access academic records?",
+      "How do I use ARIS?"
+    ],
+    "keywords": [
+      "ARIS",
+      "ARIS 3",
+      "Academic Registration Information System",
+      "student portal",
+      "portal",
+      "login",
+      "registration",
+      "course registration",
+      "results",
+      "grades",
+      "transcript",
+      "fee payment",
+      "control number",
+      "academic records",
+      "semester registration",
+      "student account",
+      "password reset",
+      "academic profile",
+      "online services",
+      "research supervision",
+      "graduation",
+      "hostel application"
+    ]
+  },
+  {
+    "category": "Course Registration",
+    "question": "How do I register for courses at the University of Dar es Salaam (UDSM)?",
+    "answer": "Course registration at the University of Dar es Salaam (UDSM) is the official process through which students select and enroll in courses they will study during a particular semester or academic year. Registration is a mandatory academic requirement for all students because only students who are properly registered are recognized as active students and are normally allowed to attend classes, access academic services, and participate in university examinations.\n\nCourse registration is completed electronically through the Academic Registration Information System (ARIS 3), which is the university's official student information management system. Students use their ARIS accounts to access registration services, view their programme requirements, select courses, and submit their registration information online. Students should ensure that their personal information, academic status, and financial obligations are updated before attempting registration.\n\nBefore registering courses, students should first understand their programme structure. Every UDSM academic programme has a curriculum that defines compulsory courses, elective courses, prerequisites, credit requirements, and the expected courses for each semester. Students should follow the approved curriculum for their programme and avoid selecting courses randomly because taking incorrect courses may affect their academic progress and graduation eligibility.\n\nDuring the registration period, students normally log into ARIS 3, access the course registration section, review the courses available for their programme and academic year, select the required courses, and submit their registration. Depending on the programme, some course selections may require approval from an academic advisor, department, school, or college before becoming final. Students should carefully confirm their selected courses before final submission.\n\nCourse registration deadlines are announced by the university through the official academic calendar and student communication channels. Students are advised to complete registration early because delays may cause problems such as inability to access learning systems, missing academic activities, or complications during examination periods. Students who fail to register within the official period may be required to follow university procedures for late registration, which may involve approval from relevant authorities and payment of applicable penalties.\n\nThe number of courses a student can register for depends on the requirements of their academic programme and university regulations. Students should maintain the required academic workload for their level of study while considering prerequisites and semester arrangements. Undergraduate programmes normally follow a structured semester-based curriculum, while postgraduate programmes may have different registration requirements depending on coursework, research, dissertation, or thesis components.\n\nStudents may sometimes need to add or drop courses after the beginning of a semester. Changes to registered courses are only allowed within the period specified by university regulations. Students who want to change courses should consult their academic department or academic advisor before making changes because dropping a compulsory course or selecting an incorrect course may affect progression toward graduation.\n\nA student should not assume that attending lectures automatically means they are registered for a course. The official ARIS registration record is the recognized university record. If a course does not appear in the student's official registration record, the student may experience difficulties during continuous assessment recording, examination preparation, or final results processing.\n\nAfter completing registration, students should verify their registration status by checking their registered courses on ARIS 3. They should confirm that all compulsory courses, electives, and required credit units are correctly displayed. Any errors should be reported immediately to the relevant department, college academic office, or registration office before registration deadlines close.\n\nFor first-year students, course registration is usually guided by information provided during orientation and admission procedures. New students are introduced to university systems, academic regulations, programme structures, and registration procedures. They are encouraged to seek assistance from academic advisors, departments, and student support offices whenever they are uncertain about course selection.\n\nFor postgraduate students, registration may involve coursework modules, research components, supervision arrangements, seminars, dissertation, or thesis activities depending on the programme. Research students must maintain registration status throughout their research period according to postgraduate regulations.\n\nCommon problems students experience during registration include forgotten ARIS passwords, outstanding fees, incorrect programme information, missing course options, system delays, and failure to meet academic requirements. Students facing such problems should contact the appropriate university office instead of attempting unofficial solutions.\n\nSuccessful course registration is important because it establishes the official academic relationship between the student and the university for that semester. Students should treat registration deadlines seriously, regularly check university announcements, maintain communication with their departments, and ensure that their ARIS records accurately reflect their academic activities.",
+    "aliases": [
+      "How do I choose my courses?",
+      "How can I register for a semester?",
+      "Where do I register courses?",
+      "When does course registration open?",
+      "Can I change my courses after registration?",
+      "I want to add or remove a course",
+      "How do I register on ARIS?",
+      "Why can't I register courses?"
+    ],
+    "keywords": [
+      "course registration",
+      "register courses",
+      "semester registration",
+      "ARIS",
+      "ARIS 3",
+      "student portal",
+      "academic registration",
+      "course selection",
+      "add course",
+      "drop course",
+      "credit units",
+      "programme structure",
+      "undergraduate registration",
+      "postgraduate registration",
+      "registration deadline",
+      "late registration",
+      "course approval",
+      "academic advisor"
+    ]
+  },
+  {
+    "category": "Colleges, Schools, Institutes and Academic Programmes",
+    "question": "What colleges, schools, institutes and academic programmes are available at the University of Dar es Salaam (UDSM)?",
+    "answer": "The University of Dar es Salaam (UDSM) is organized into colleges, schools, institutes, centres, and departments that provide academic programmes, conduct research, and support innovation and community engagement. These academic units allow the university to offer programmes across a wide range of disciplines including science, technology, engineering, business, law, education, humanities, social sciences, agriculture, journalism, marine sciences, and information and communication technologies.\n\nUDSM programmes are offered at different levels including certificates, diplomas, bachelor's degrees, postgraduate diplomas, master's degrees, and doctoral degrees. The programmes are designed to provide students with theoretical knowledge, practical skills, research experience, and professional competencies required in different sectors of society. The university regularly reviews its programmes to align them with national development priorities, industry needs, technological changes, and international academic standards.\n\nThe College of Engineering and Technology (CoET) is one of the major engineering academic units at UDSM. It focuses on engineering education, research, innovation, and technological development. The college offers programmes in areas such as civil engineering, electrical engineering, mechanical engineering, chemical and mining engineering, and other engineering-related fields. CoET also supports practical training, laboratory work, design projects, and research activities that prepare students for careers in engineering industries.\n\nThe College of Information and Communication Technologies (CoICT) focuses on computing, information systems, telecommunications, software development, and digital technologies. It offers programmes related to computer science, information technology, computer engineering, telecommunications engineering, information systems, and other ICT-related disciplines. CoICT plays an important role in developing technology professionals who support digital transformation in Tanzania and beyond.\n\nThe University of Dar es Salaam Business School (UDBS) provides education and research in business and management-related fields. It offers programmes covering areas such as accounting, finance, marketing, human resource management, entrepreneurship, business administration, and other management disciplines. UDBS prepares students for careers in private companies, government institutions, entrepreneurship, banking, consulting, and business leadership.\n\nThe School of Law provides legal education and research in different areas of law. It prepares students for careers in legal practice, public administration, policy development, corporate services, and research. Law programmes combine legal theory, practical skills, legal research, and professional preparation.\n\nThe College of Humanities focuses on disciplines related to languages, culture, history, literature, arts, communication, and human development. It contributes to understanding society, cultural heritage, communication, and human experiences through teaching and research.\n\nThe College of Social Sciences focuses on understanding social, political, economic, and human relationships. Academic areas include economics, political science, sociology, geography, statistics, development studies, and related disciplines. Research from these areas contributes to policy development, governance, economic planning, and social improvement.\n\nThe College of Natural and Applied Sciences (CoNAS) focuses on scientific education, research, and innovation. It covers disciplines including mathematics, physics, chemistry, biology, environmental sciences, and other scientific fields. The college supports scientific research, laboratory training, and development of professionals in science-related sectors.\n\nThe School of Education provides programmes related to teaching, education management, curriculum studies, educational psychology, and teacher development. It contributes to improving education quality through research, training, and professional development.\n\nThe School of Journalism and Mass Communication focuses on communication, journalism, media studies, public relations, and related areas. It prepares students for careers in journalism, broadcasting, digital media, communication management, and research.\n\nThe Institute of Marine Sciences (IMS), located in Zanzibar, focuses on marine research, ocean studies, coastal resources, fisheries, and environmental conservation. It contributes to understanding and protecting marine ecosystems while supporting sustainable use of aquatic resources.\n\nThe College of Agricultural Sciences and Fisheries provides education and research related to agriculture, food systems, fisheries, natural resources, and rural development. It supports Tanzania's agricultural sector by training professionals and conducting research aimed at improving food security and sustainable resource management.\n\nUDSM also has specialized institutes and centres that support research, professional training, consultancy, and innovation. These units address specific areas such as research development, leadership, technology, entrepreneurship, policy studies, and community engagement.\n\nStudents choosing a programme at UDSM should consider their academic interests, admission requirements, career goals, and programme structure. Each programme has specific entry requirements, course combinations, duration, and graduation requirements. Applicants should always consult the latest UDSM undergraduate or postgraduate prospectus because available programmes and admission requirements may change over time.\n\nThe university provides information about programmes through official admission systems, prospectuses, college websites, and academic offices. Students who need guidance on selecting programmes can consult admission offices, academic departments, or college representatives for accurate information about available courses, requirements, and career opportunities.",
+    "aliases": [
+      "What courses are offered at UDSM?",
+      "Which colleges are available at UDSM?",
+      "Where can I study Computer Science?",
+      "Which college offers engineering?",
+      "Which school offers law?",
+      "Tell me about UDSM programmes",
+      "What degrees does UDSM offer?",
+      "List UDSM faculties",
+      "What departments are available?"
+    ],
+    "keywords": [
+      "colleges",
+      "schools",
+      "institutes",
+      "departments",
+      "academic programmes",
+      "courses",
+      "degrees",
+      "bachelor programmes",
+      "masters programmes",
+      "PhD programmes",
+      "CoICT",
+      "College of Information and Communication Technologies",
+      "CoET",
+      "College of Engineering and Technology",
+      "CoHU",
+      "College of Humanities",
+      "CoSS",
+      "College of Social Sciences",
+      "UDSoL",
+      "School of Law",
+      "UDBS",
+      "Business School",
+      "education",
+      "science",
+      "technology",
+      "engineering",
+      "law",
+      "economics",
+      "medicine",
+      "agriculture"
+    ]
+  },
+  {
+    "category": "Library Services",
+    "question": "What library services are available at the University of Dar es Salaam (UDSM)?",
+    "answer": "The University of Dar es Salaam Library System provides academic information services that support teaching, learning, research, and innovation activities across the university. The library is one of the most important academic support facilities at UDSM because it provides students, lecturers, researchers, and other university members with access to books, journals, electronic resources, research materials, and professional information services.\n\nThe main library at UDSM is the Mwalimu Nyerere Library, located at the Mwalimu Julius Nyerere Mlimani Campus. The library serves students from different colleges, schools, institutes, and departments by providing access to academic materials required for coursework, assignments, research projects, dissertations, and general academic development. In addition to the main library, some colleges and academic units maintain specialized collections and reading facilities that support specific disciplines.\n\nUDSM Library provides both physical and electronic information resources. Physical resources include textbooks, reference books, newspapers, journals, government publications, research reports, dissertations, theses, and other academic materials. Students can search available materials through the library catalogue system, identify resources relevant to their courses, and borrow eligible materials according to library regulations.\n\nThe library also provides access to electronic resources, allowing students and researchers to access academic information online. These resources include electronic books, electronic journals, research databases, digital repositories, and other scholarly materials. Electronic resources are particularly useful because they allow students to access information beyond the physical library collection and support research activities from different locations.\n\nStudents can use the library catalogue or online search systems to locate available materials before visiting the library. Searching the catalogue helps students identify book titles, authors, subjects, availability status, and locations within the library. This saves time and improves the efficiency of finding academic materials.\n\nLibrary membership is generally connected to a student's official registration status at UDSM. Active students are expected to use their university identification information when accessing library services. Students should carry their valid student identification cards when visiting the library because identification may be required when borrowing materials or accessing certain services.\n\nThe library provides book borrowing services that allow eligible users to take selected materials outside the library for a specified period. Borrowing limits and loan periods may depend on the user's category, such as undergraduate student, postgraduate student, academic staff member, or researcher. Students should return borrowed materials on or before the due date to avoid penalties and ensure that resources remain available to other users.\n\nReference and information support services are also available to assist students in finding suitable academic materials. Librarians help users understand how to search databases, evaluate information sources, use citation tools, and locate materials for assignments and research projects. Students are encouraged to seek assistance from librarians when they experience difficulties finding information.\n\nThe library supports research activities by providing access to scholarly publications, thesis collections, dissertations, institutional repositories, and research databases. Postgraduate students and researchers can use these resources when conducting literature reviews, developing research proposals, writing dissertations, and publishing academic work.\n\nUDSM Library also promotes information literacy among students. Through training sessions, orientations, and user support programmes, students learn how to effectively search for information, differentiate reliable academic sources from unreliable sources, avoid plagiarism, and correctly cite information used in academic work.\n\nStudents are expected to follow library regulations to maintain a suitable learning environment. These regulations include maintaining silence in designated study areas, taking care of library materials, returning borrowed resources on time, respecting other users, and following instructions provided by library staff.\n\nThe library provides spaces designed for individual and group learning. Students can use reading areas, discussion spaces, computer facilities, and other study environments depending on availability. During examination periods, library facilities become highly utilized, so students are encouraged to plan their study activities early.\n\nStudents experiencing problems accessing library services should contact library staff through official UDSM Library communication channels. Common issues may include difficulties accessing electronic resources, problems with library accounts, missing materials, or questions about borrowing procedures.\n\nThe UDSM Library plays a central role in supporting academic excellence by ensuring that students have access to reliable information resources. Students are encouraged to make full use of both physical and digital library services throughout their studies because effective use of library resources improves academic performance, research quality, and lifelong learning skills.",
+    "aliases": [
+      "Where is the UDSM library?",
+      "How do I borrow books?",
+      "How many books can I borrow?",
+      "Can I access online journals?",
+      "How do I search for books?",
+      "How do I use the digital library?",
+      "Does UDSM provide research materials?",
+      "Where can I find past papers?",
+      "How do I access journals?",
+      "What services does the library provide?"
+    ],
+    "keywords": [
+      "library",
+      "UDSM library",
+      "Mwalimu Nyerere Library",
+      "book borrowing",
+      "books",
+      "journals",
+      "digital library",
+      "e-resources",
+      "online databases",
+      "research materials",
+      "library account",
+      "library catalogue",
+      "OPAC",
+      "repository",
+      "theses",
+      "dissertations",
+      "academic resources",
+      "study spaces",
+      "library membership",
+      "borrowing rules",
+      "library fines",
+      "reference services"
+    ]
+  },
+  {
+    "category": "Examination Regulations",
+    "question": "What are the examination regulations, grading system, GPA and CGPA rules at the University of Dar es Salaam (UDSM)?",
+    "answer": "The University of Dar es Salaam (UDSM) uses a structured examination and assessment system to evaluate students' academic performance throughout their programmes. Assessment is designed to measure students' understanding of course content, ability to apply knowledge, analytical skills, practical competence, and achievement of learning outcomes. Assessment normally consists of continuous assessment activities and final examinations, depending on the requirements of each course and academic programme.\n\nContinuous assessment is conducted during the semester and may include assignments, quizzes, tests, laboratory practicals, presentations, projects, field work, class participation, or other academic activities depending on the nature of the course. These assessments contribute to the final course grade. Students are expected to participate actively in all continuous assessment activities because failure to complete required coursework may affect their eligibility to sit for final examinations or their overall course performance.\n\nFinal examinations are conducted at the end of each semester according to the official university examination timetable. Only students who have fulfilled university requirements, including academic registration and other required conditions, are normally allowed to participate in examinations. Students should always confirm examination dates, venues, and instructions through official university communication channels and their respective academic departments.\n\nUDSM uses a Grade Point Average (GPA) system to measure academic performance. Each course grade is assigned a grade point value, and the GPA is calculated based on the weighted average of grade points earned in registered courses. The Cumulative Grade Point Average (CGPA) represents the overall academic performance of a student across all completed semesters of study.\n\nThe grading system generally follows a classification where higher grades represent stronger academic performance. Grades are awarded according to marks obtained in assessments, with each grade corresponding to a specific grade point value used in GPA calculations. The exact grading scale and classification requirements may differ between undergraduate, postgraduate, and professional programmes, therefore students should refer to the regulations applicable to their programme.\n\nStudents must achieve the minimum required performance in their courses to progress academically. A student who fails a course is normally required to follow the procedures provided in university regulations. Depending on the course type and programme requirements, this may involve repeating the course, taking a supplementary examination where applicable, or meeting additional academic requirements set by the university.\n\nA failed compulsory course can affect a student's progression because compulsory courses are required for completion of a programme. Students should consult their academic department or academic advisor after receiving failed results to understand the available options and the correct procedure to follow.\n\nSupplementary examinations are additional examinations provided to eligible students who have failed certain courses but meet the conditions specified by university regulations. They are intended to provide students with another opportunity to demonstrate achievement of the required learning outcomes. Eligibility for supplementary examinations depends on university rules, programme regulations, and the student's academic situation.\n\nSpecial examinations may be granted to students who miss scheduled examinations due to approved reasons such as serious illness, emergencies, or other circumstances recognized by the university. Students requesting a special examination must follow the official procedures and provide appropriate supporting documentation within the required timeframe. Approval is normally required from the relevant university authorities before a student can sit for a special examination.\n\nStudents who believe there are errors in their examination results may follow the official procedures for result verification, review, or appeal. Students should not attempt unofficial methods of changing results. All examination-related concerns should be submitted through the appropriate academic offices according to university regulations.\n\nAcademic progress at UDSM is monitored using GPA, CGPA, course completion, and programme requirements. Students are expected to maintain satisfactory academic performance throughout their studies. Students whose academic performance falls below the required standards may receive academic warnings, be placed on probation, be required to repeat certain academic requirements, or face discontinuation depending on the severity of the situation and applicable regulations.\n\nStudents should regularly check their academic records through official university systems such as ARIS 3 to monitor their registered courses, released results, GPA, CGPA, and academic progress. If a student notices incorrect information in their academic record, they should report it immediately to their department or relevant academic office.\n\nStudents are also expected to follow examination conduct regulations. During examinations, students must carry valid identification documents, follow instructions provided by examination supervisors, avoid prohibited materials, and maintain academic integrity. Examination misconduct, including cheating or other forms of academic dishonesty, is treated seriously and may result in disciplinary action according to university regulations.\n\nUnderstanding examination regulations helps students plan their studies effectively, maintain good academic performance, and successfully complete their programmes. Students are encouraged to read the latest UDSM examination regulations, attend academic orientation sessions, communicate with their departments, and seek academic guidance whenever they face difficulties related to assessment or academic progression.",
+    "aliases": [
+      "How does grading work at UDSM?",
+      "How is GPA calculated?",
+      "What happens if I fail a course?",
+      "What is CGPA?",
+      "Can I repeat a failed course?",
+      "What is the pass mark?",
+      "How do supplementary exams work?",
+      "Can I appeal examination results?",
+      "What happens if I miss an exam?",
+      "How are students assessed?"
+    ],
+    "keywords": [
+      "examination",
+      "exam",
+      "final examination",
+      "continuous assessment",
+      "coursework",
+      "grading system",
+      "grades",
+      "GPA",
+      "CGPA",
+      "grade points",
+      "pass mark",
+      "failure",
+      "supplementary examination",
+      "special examination",
+      "remarking",
+      "appeal",
+      "results",
+      "academic progress",
+      "discontinuation",
+      "probation",
+      "academic regulations",
+      "assessment"
+    ]
+  },
+  {
+    "category": "Fees and Payments",
+    "question": "How do I pay university fees at the University of Dar es Salaam (UDSM), and how do control numbers and financial clearance work?",
+    "answer": "The University of Dar es Salaam (UDSM) manages student financial services through its official digital systems, mainly the Academic Registration Information System (ARIS 3) and other approved university payment platforms. Every student is responsible for ensuring that required university fees are paid within the deadlines communicated by the university. These payments may include tuition fees, accommodation fees, examination-related charges, registration fees, graduation fees, transcripts, and other approved university services depending on the student's level of study and programme requirements.\n\nBefore making payments, students should access their financial information through ARIS 3 or the official student systems to view their fee requirements, outstanding balances, and available payment instructions. The exact amount a student is required to pay depends on factors such as their academic programme, level of study, citizenship category, accommodation status, sponsorship arrangement, and other applicable university charges.\n\nUDSM uses payment control numbers to identify student payments. A control number is a unique payment reference generated through the university system that allows students to make payments through approved payment channels. Students should always generate their own official control numbers through the university system instead of using unofficial payment instructions from other individuals.\n\nAfter obtaining a control number, students can make payments through approved channels provided by the university. These may include banks and electronic payment platforms supported by the university. Students should keep payment confirmation messages, receipts, or transaction references as proof of payment until the payment has been successfully reflected in their university account.\n\nPayment processing time may vary depending on the payment method used. Students are advised not to wait until the final deadline to make payments because delays between payment and system updates may affect registration, examination access, or other university services. Early payment allows enough time for verification and resolution of any payment-related problems.\n\nFinancial clearance is an important process that confirms whether a student has fulfilled their financial obligations to the university. Students may be required to complete financial clearance before accessing certain services such as course registration, examination clearance, graduation processing, transcript requests, or other administrative procedures. Students with outstanding balances may experience restrictions until their accounts are settled or officially approved payment arrangements are made.\n\nStudents receiving sponsorship, scholarships, or loans such as support from the Higher Education Students' Loans Board (HESLB) should ensure that their sponsorship information is correctly reflected in university systems. Sponsored students remain responsible for monitoring their financial status and following up on any outstanding issues between the sponsor and the university.\n\nStudents who have difficulty paying the required fees should communicate with the relevant university offices as early as possible. Depending on university policies, students may receive guidance on available procedures, payment arrangements, sponsorship verification, or other financial support options. Students should not wait until examination periods or registration deadlines before reporting financial challenges.\n\nAccommodation fees are handled through the university's accommodation management processes. Students allocated university hostels are required to complete accommodation payments according to instructions provided by the University Students Accommodation Bureau (USAB) and university financial procedures. Students should confirm accommodation charges from official announcements because fees may change depending on hostel category, academic year, and student status.\n\nStudents should regularly monitor their ARIS 3 financial records to confirm that payments have been received and correctly recorded. If a payment has been made but does not appear in the system after the expected processing period, the student should contact the appropriate university office and provide payment evidence such as receipts or transaction references.\n\nFinancial responsibility is an important part of university administration. Students should plan their finances carefully, understand their fee obligations, meet payment deadlines, and use only official UDSM payment procedures. Avoiding unofficial payment methods protects students from fraud and ensures that payments are correctly recognized in university records.\n\nFor graduating students, financial clearance is a required step before completing graduation procedures. Students must ensure that all outstanding university charges, including tuition fees, accommodation charges, library obligations, and other approved payments, have been resolved before receiving final clearance for graduation documents.\n\nThe university regularly communicates fee structures, deadlines, payment procedures, and financial announcements through official channels. Students should always rely on official UDSM communication platforms, ARIS 3 notifications, and announcements from relevant university offices for the most accurate and current financial information.",
+    "aliases": [
+      "How do I pay my UDSM fees?",
+      "Where do I get a control number?",
+      "How can I check my fee balance?",
+      "How do I clear my fees?",
+      "Can I pay fees through mobile money?",
+      "Why is my registration blocked?",
+      "How do I check my financial status?",
+      "What happens if I have unpaid fees?",
+      "How do sponsored students pay fees?",
+      "How do I pay accommodation fees?"
+    ],
+    "keywords": [
+      "fees",
+      "tuition fees",
+      "payment",
+      "university fees",
+      "control number",
+      "payment control number",
+      "financial clearance",
+      "fee statement",
+      "ARIS",
+      "ARIS 3",
+      "student portal",
+      "bank payment",
+      "mobile money",
+      "registration clearance",
+      "outstanding balance",
+      "fee balance",
+      "accommodation fees",
+      "hostel fees",
+      "examination clearance",
+      "graduation clearance",
+      "HESLB",
+      "loan payment"
+    ]
+  },
+  {
+    "category": "Academic Calendar",
+    "question": "What is the academic calendar at the University of Dar es Salaam (UDSM), and what are the important academic dates?",
+    "answer": "The University of Dar es Salaam (UDSM) operates using an academic calendar that defines the structure of the academic year, including admission activities, student registration, teaching periods, examinations, breaks, and graduation activities. The academic calendar is an important guide for students because it provides official timelines for completing academic responsibilities and accessing university services.\n\nThe UDSM academic year is generally organized into two main semesters. Each semester consists of a teaching period where students attend lectures, tutorials, practical sessions, seminars, and other learning activities, followed by an examination period where students are assessed on the courses they registered for during that semester. The exact dates for each activity are announced through the official university academic calendar issued for every academic year.\n\nAt the beginning of a new academic year, newly admitted students participate in registration and orientation activities. Orientation introduces students to the university environment, academic regulations, student services, accommodation procedures, ICT systems, library services, health services, student organizations, and other important aspects of university life. New students are encouraged to attend orientation because it helps them understand university expectations and available support services.\n\nSemester registration is one of the first important activities in the academic calendar. Continuing students are required to complete semester registration through ARIS 3 within the announced registration period. Students should confirm their programme requirements, register the correct courses, and ensure that their financial obligations are handled before registration deadlines. Failure to complete registration on time may affect access to academic services and examination eligibility.\n\nAfter registration, the teaching period begins. During this period, students attend lectures, complete assignments, participate in practical sessions, undertake continuous assessment activities, and prepare for final examinations. Students should follow their college or department timetables because specific class schedules may vary depending on the programme and course requirements.\n\nMost semesters include a mid-semester break period. The purpose of the break is to provide students and academic staff with time to rest, review academic progress, complete assignments, conduct research activities, or prepare for the remaining part of the semester. The duration and timing of the break are determined by the official academic calendar.\n\nAt the end of the teaching period, students enter a revision period followed by university examinations. Examination dates are published through official university channels, and students are expected to confirm their examination schedules early. Students must ensure they are properly registered, financially cleared where required, and meet examination requirements before participating in final examinations.\n\nAfter examinations, academic departments process results, conduct assessments, and update student academic records through university systems such as ARIS 3. Students can later access their results and academic progress information through the official student systems.\n\nGraduation is another important event included in the university calendar. Students who have completed all academic requirements, cleared all university obligations, and received approval from relevant academic authorities are included in graduation activities. Graduation dates and procedures are announced officially by the university and may include clearance procedures, collection of graduation information, gown arrangements, and ceremony schedules.\n\nThe academic calendar may also include other important activities such as public holidays, research periods, practical training periods, field work schedules, postgraduate research activities, and university administrative deadlines. Some programmes may have different timelines because of their specific requirements, especially programmes involving laboratory work, industrial training, clinical practice, or field studies.\n\nStudents should regularly check official UDSM communication channels, including university announcements, college notices, ARIS 3 notifications, and student information platforms, because academic dates may change due to administrative decisions or unforeseen circumstances.\n\nStudents are responsible for managing their academic activities according to the official calendar. Missing important deadlines such as registration, course changes, examination applications, or clearance procedures can create academic challenges. Planning ahead and checking university announcements regularly helps students complete their studies successfully.\n\nThe official academic calendar is the most reliable source for current semester dates because schedules change from one academic year to another. Students should always refer to the latest calendar published by UDSM rather than relying on previous years' dates or unofficial information shared through social media platforms.",
+    "aliases": [
+      "When does semester start at UDSM?",
+      "When do lectures begin?",
+      "When are UDSM exams?",
+      "When is the semester break?",
+      "What are important university dates?",
+      "When does registration open?",
+      "When does the academic year end?",
+      "Tell me about UDSM semesters"
+    ],
+    "keywords": [
+      "academic calendar",
+      "semester",
+      "semester dates",
+      "academic year",
+      "registration period",
+      "orientation",
+      "lectures",
+      "mid semester break",
+      "examinations",
+      "final exams",
+      "graduation",
+      "holiday",
+      "opening date",
+      "closing date",
+      "ARIS",
+      "course registration deadline"
+    ]
+  },
+  {
+    "category": "ICT Services",
+    "question": "What ICT services are available for students at the University of Dar es Salaam (UDSM)?",
+    "answer": "The University of Dar es Salaam (UDSM) provides Information and Communication Technology (ICT) services to support teaching, learning, research, administration, and communication across the university. ICT services are managed through the university's information technology structures and are designed to provide students and staff with access to digital platforms, internet connectivity, computer facilities, online academic systems, and technical support.\n\nICT services are an important part of student life at UDSM because many academic and administrative activities are conducted electronically. Students use university digital systems for activities such as course registration, accessing learning materials, checking academic records, receiving university communication, conducting research, and accessing online resources.\n\nOne of the main ICT services available to students is access to campus internet connectivity. UDSM provides internet services within university facilities, including learning areas, libraries, computer laboratories, and other selected locations. Students can connect their devices to available university wireless networks by following the authentication procedures provided by the ICT support office. Access credentials and connection procedures may change depending on university ICT policies, therefore students should always follow the latest instructions provided through official ICT announcements.\n\nUDSM provides student email services that support official communication between the university and students. Student email accounts are used for receiving important announcements, academic communication, system notifications, and other university-related information. Students should regularly check their official university email accounts because important information about registration, examinations, academic activities, and university services may be communicated through these channels.\n\nComputer laboratories are available across different colleges, schools, institutes, and departments to support academic activities that require computing facilities. These laboratories provide students with access to computers, software applications, internet services, and other digital tools required for coursework, programming, research, data analysis, online learning, and academic projects. Access rules may differ depending on the specific laboratory and academic unit managing the facility.\n\nThe university also supports online learning through digital learning platforms such as Learning Management Systems (LMS). These platforms allow lecturers to share learning materials, assignments, announcements, quizzes, and other academic resources with students. Students are encouraged to become familiar with online learning platforms because many courses may combine physical classroom teaching with digital learning activities.\n\nICT services support access to other university systems, including the Academic Registration Information System (ARIS 3), library systems, research systems, admission systems, and other digital platforms available through the UDSM Access Portal. These systems allow students to complete academic and administrative tasks online without visiting multiple offices physically.\n\nThe ICT support team provides assistance to students experiencing technical challenges related to university digital services. Common issues handled by ICT support include difficulties accessing university systems, password problems, network connection challenges, email issues, and general technical guidance. Students experiencing ICT problems should report them through official ICT support channels and provide sufficient details about the problem to allow faster assistance.\n\nStudents should practice good digital security habits when using university ICT services. They should keep their passwords confidential, avoid sharing account details with other people, use secure passwords, log out from shared computers, and avoid clicking suspicious links or downloading unsafe files. University accounts contain personal and academic information, so protecting them is important.\n\nStudents should also use ICT facilities responsibly and follow university regulations regarding acceptable use of technology resources. Activities such as unauthorized access attempts, misuse of university networks, sharing harmful software, or engaging in activities that disrupt ICT services may result in disciplinary action according to university policies.\n\nFor students studying technology-related programmes, such as those offered through the College of Information and Communication Technologies (CoICT), ICT facilities also support advanced learning activities including software development, networking, cybersecurity, database management, artificial intelligence, and research projects.\n\nStudents who need ICT assistance should use official university communication channels because contact details, office locations, and support procedures may change over time. The ICT department regularly provides updates regarding system maintenance, new services, access procedures, and technical announcements.\n\nEffective use of ICT services helps UDSM students improve academic performance, access information easily, communicate effectively, and participate in modern digital learning environments. Students are encouraged to take advantage of available ICT resources throughout their studies while following university guidelines for responsible technology use.",
+    "aliases": [
+      "How do I connect to UDSM Wi-Fi?",
+      "Where can I get ICT help?",
+      "How do I access my student email?",
+      "How do I reset my password?",
+      "Does UDSM provide internet?",
+      "Where are computer labs located?",
+      "How can I access online learning?",
+      "Who handles ICT problems at UDSM?",
+      "How do I get technical support?"
+    ],
+    "keywords": [
+      "ICT",
+      "Information and Communication Technology",
+      "computer services",
+      "campus Wi-Fi",
+      "internet",
+      "student email",
+      "email account",
+      "computer labs",
+      "ICT support",
+      "helpdesk",
+      "password reset",
+      "ARIS",
+      "LMS",
+      "online learning",
+      "digital services",
+      "network",
+      "internet access",
+      "technology services",
+      "ICT office"
+    ]
+  },
+  {
+    "category": "Student Health and Welfare Services",
+    "question": "What health, medical, counselling and welfare services are available for students at the University of Dar es Salaam (UDSM)?",
+    "answer": "The University of Dar es Salaam (UDSM) provides health, counselling, and welfare services to support students' academic success and overall wellbeing. The university recognizes that students' health directly affects their ability to learn, participate in academic activities, and complete their studies successfully. These services are designed to provide medical assistance, health education, counselling support, and guidance on personal and social challenges that students may experience during university life.\n\nUDSM provides medical services through its university health facilities, including the University Health Centre located at the Mlimani Campus. The health centre provides basic healthcare services to students and members of the university community. Students can visit the health facility when they experience illness, require medical consultation, need treatment, or require referral services for conditions that require specialized medical attention.\n\nStudents are encouraged to seek medical assistance whenever they experience health problems instead of ignoring symptoms that may affect their academic performance. The university health facility provides professional medical support through qualified healthcare personnel who assess students, provide appropriate treatment, and advise students on further medical steps where necessary.\n\nAccess to medical services normally requires students to follow university health procedures and provide necessary identification documents. Active students should carry their valid student identification cards when visiting university health facilities because identification may be required to confirm their student status and access available services.\n\nStudents are responsible for understanding their medical coverage arrangements while studying at UDSM. Depending on government policies, student status, sponsorship arrangements, or applicable regulations, students may be required to have valid health insurance coverage. Students should confirm current health insurance requirements through official university communication channels because requirements may change.\n\nThe university also provides counselling and psychological support services to help students manage personal, academic, emotional, and social challenges. University life can involve challenges such as adjusting to a new environment, academic pressure, relationship difficulties, financial concerns, family issues, and uncertainty about the future. Counselling services provide students with a confidential environment where they can discuss challenges and receive professional guidance.\n\nStudents seeking counselling support can contact the relevant student welfare or counselling offices available within the university. Counselling services are intended to support students' personal development, improve coping skills, promote emotional wellbeing, and help students make informed decisions during their studies.\n\nUDSM also supports student welfare through different offices and structures responsible for addressing student needs beyond academics. These services may include guidance on accommodation matters, disability support, student life challenges, social adjustment, and referral to appropriate university resources.\n\nStudents with disabilities can seek support to ensure they have an environment that allows them to participate effectively in university activities. The university works through relevant offices and departments to provide assistance, guidance, and reasonable support depending on individual student needs and available facilities.\n\nIn case of medical emergencies on campus, students should seek immediate assistance from available university health facilities or emergency support services. Students should also familiarize themselves with the location of important facilities such as the health centre, security offices, and student support offices during their first days at the university.\n\nStudents should maintain healthy lifestyles while at university by practicing good hygiene, eating balanced meals, managing stress, participating in physical activities, getting enough rest, and seeking professional support when facing difficulties. Maintaining good health helps students remain focused and productive throughout their academic journey.\n\nThe university also promotes health awareness through educational programmes, campaigns, and information sharing on topics related to disease prevention, personal health, safety, and responsible decision-making. Students are encouraged to participate in health-related activities organized by the university and student organizations.\n\nConfidentiality is an important principle in student health and counselling services. Students who seek medical or counselling support should expect their information to be handled professionally and according to applicable ethical standards.\n\nStudents should use official university channels to obtain updated information about health service locations, operating hours, available services, and any requirements for accessing medical support. Health and welfare services are an important part of the UDSM student experience because they help students maintain the physical and emotional wellbeing needed to succeed academically.",
+    "aliases": [
+      "Where is the UDSM clinic?",
+      "Does UDSM have a hospital?",
+      "Where can I get medical help?",
+      "What happens if I get sick on campus?",
+      "Does UDSM provide counselling?",
+      "Where can students get psychological support?",
+      "How do I access health services?",
+      "Who helps students with personal problems?",
+      "What welfare services are available?"
+    ],
+    "keywords": [
+      "health services",
+      "medical services",
+      "UDSM health centre",
+      "university clinic",
+      "medical centre",
+      "doctor",
+      "nurse",
+      "treatment",
+      "sick student",
+      "medical examination",
+      "counselling",
+      "mental health",
+      "student welfare",
+      "insurance",
+      "health insurance",
+      "NHIF",
+      "emergency",
+      "first aid",
+      "disability support",
+      "student support"
+    ]
+  },
+  {
+    "category": "Admission Process",
+    "question": "How do I apply for admission to the University of Dar es Salaam (UDSM), and what are the entry requirements?",
+    "answer": "The University of Dar es Salaam (UDSM) admission process is the official procedure through which qualified applicants apply for and are selected to join undergraduate, postgraduate, and other academic programmes offered by the university. Admission is based on meeting the minimum entry requirements, submitting a complete application, following the correct application procedures, and being successfully selected according to university and national higher education admission regulations.\n\nUDSM admits students into different levels of study, including bachelor's degree programmes, master's degree programmes, doctoral programmes, diploma-related pathways, and other specialized academic programmes. Each programme has its own academic requirements, therefore applicants should always check the specific requirements for the programme they intend to study before submitting an application.\n\nFor undergraduate degree programmes, applicants must meet the general minimum admission requirements as well as additional requirements specific to individual programmes. The requirements normally consider qualifications obtained at secondary school level, advanced secondary education level, or equivalent qualifications such as recognized diploma qualifications. Applicants with direct entry qualifications normally apply through the national admission procedures coordinated through the Tanzania Commission for Universities (TCU) Central Admission System (CAS).\n\nApplicants using equivalent qualifications, such as recognized diploma qualifications, must ensure that their qualifications meet university requirements. Diploma applicants are required to have qualifications from recognized institutions and meet the required performance levels specified by UDSM regulations. Additional requirements may apply depending on the academic programme selected.\n\nWhen applying for undergraduate programmes, applicants should carefully select programmes that match their academic background, interests, and career goals. Some programmes have specific subject requirements because of the technical or professional nature of the field. For example, science-based programmes may require appropriate science subjects, while programmes in humanities, business, or social sciences may have different subject combinations.\n\nThe undergraduate application process involves submitting an application through the appropriate admission system, providing accurate personal information, uploading or submitting required academic documents, selecting preferred programmes, and completing all required application steps before the deadline. Applicants should carefully read application instructions because incomplete applications or incorrect information may affect admission processing.\n\nRequired documents may include academic certificates, examination results, identification documents, passport-size photographs, and other supporting documents depending on applicant category and programme requirements. International applicants may be required to provide additional documents such as qualification verification, passport information, or equivalent certification according to university and national requirements.\n\nAfter applications are reviewed, successful applicants receive admission communication through official university channels. Applicants should avoid relying on unofficial messages, social media posts, or information from unauthorized individuals. Admission decisions, joining instructions, reporting dates, and registration procedures are communicated through official UDSM platforms.\n\nNewly admitted students are required to complete several steps before beginning their studies. These steps normally include confirming admission, obtaining joining instructions, completing registration procedures through university systems, submitting required documents, paying applicable fees, and attending student orientation activities. Orientation introduces new students to academic regulations, university services, campus facilities, and student responsibilities.\n\nPostgraduate admission follows a different process from undergraduate admission. Applicants for master's and doctoral programmes must meet academic requirements related to previous qualifications, research interests where applicable, and programme-specific conditions. Postgraduate applicants may be required to submit academic transcripts, certificates, research proposals for research-based programmes, recommendation letters, and other documents required by the relevant college, school, institute, or department.\n\nApplicants interested in postgraduate studies should identify the appropriate academic unit offering their desired programme. They should carefully review programme requirements because master's and doctoral programmes may have different conditions depending on the field of study, research area, and academic level.\n\nInternational students can also apply for admission to UDSM. International applicants should follow the procedures provided for foreign students and submit required academic documents, identification documents, and qualification verification documents required by the university. They should also consider immigration requirements, accommodation arrangements, and financial planning before beginning their studies.\n\nUDSM may provide alternative admission routes for eligible applicants, including mature age entry schemes for candidates who meet specified conditions. These routes provide opportunities for qualified individuals who may not follow the standard admission pathway but demonstrate the ability to undertake university studies.\n\nApplicants should regularly check official UDSM admission announcements because application opening dates, deadlines, available programmes, fees, and requirements may change from one academic year to another. The most reliable sources of admission information are official UDSM websites, admission portals, and announcements from authorized university offices.\n\nCommon admission challenges include submitting applications after deadlines, selecting programmes without checking requirements, uploading incorrect documents, providing inaccurate information, and failing to monitor admission communication. Applicants should prepare early, verify their qualifications, keep copies of submitted documents, and carefully follow official application instructions.\n\nThe admission process is the first step in becoming a UDSM student. Applicants who successfully complete admission requirements and registration procedures become part of the university community and gain access to academic resources, student services, libraries, ICT systems, accommodation services, and other facilities provided by the university.",
+    "aliases": [
+      "How can I join UDSM?",
+      "How do I apply to UDSM?",
+      "What are UDSM admission requirements?",
+      "What qualifications do I need for UDSM?",
+      "Can diploma holders apply to UDSM?",
+      "How do I apply for undergraduate studies?",
+      "How do I apply for postgraduate studies?",
+      "When does UDSM admission open?",
+      "How do I check my admission status?",
+      "What documents are needed for admission?"
+    ],
+    "keywords": [
+      "admission",
+      "application",
+      "apply",
+      "joining UDSM",
+      "undergraduate admission",
+      "postgraduate admission",
+      "entry requirements",
+      "direct entry",
+      "equivalent entry",
+      "TCU",
+      "Central Admission System",
+      "CAS",
+      "application deadline",
+      "admission portal",
+      "selection",
+      "offer letter",
+      "joining instructions",
+      "international students",
+      "diploma holders",
+      "masters admission",
+      "PhD admission",
+      "certificate",
+      "degree programmes"
+    ]
+  },
+  {
+    "category": "Campus Location and Facilities",
+    "question": "Where is the University of Dar es Salaam located, and what facilities are available on campus?",
+    "answer": "The University of Dar es Salaam (UDSM) is the oldest and one of the largest public universities in Tanzania. The main campus, known as Mlimani Campus, is located in Ubungo Municipality, Dar es Salaam. The campus is situated on a hill, and the name 'Mlimani' comes from the Swahili word meaning 'on the hill'. The campus provides an academic environment where teaching, learning, research, innovation, and student activities take place.\n\nThe Mlimani Campus is the main administrative and academic centre of the university. It hosts the Office of the Vice Chancellor, administrative offices, colleges, schools, institutes, lecture facilities, student services, accommodation facilities, libraries, ICT facilities, and recreational areas. Most undergraduate students who study at UDSM interact with facilities located within or around this campus.\n\nUDSM is organized into different colleges, schools, institutes, and centres. These academic units are distributed across the university campus and provide specialized teaching and research facilities. Examples include the College of Information and Communication Technologies (CoICT), College of Engineering and Technology (CoET), College of Natural and Applied Sciences (CoNAS), College of Social Sciences, College of Humanities, School of Law, University of Dar es Salaam Business School (UDBS), School of Education, and other academic units.\n\nThe university provides lecture halls and classrooms where students attend lectures, tutorials, seminars, and academic discussions. The size and facilities of lecture rooms vary depending on the academic unit and course requirements. Some programmes also use specialized facilities such as laboratories, workshops, studios, field facilities, and practical training areas to support hands-on learning.\n\nThe Mwalimu Nyerere Library is one of the major academic facilities at UDSM. It provides students and researchers with access to textbooks, journals, research materials, electronic resources, study spaces, and information services. Students from different colleges use the library for assignments, examination preparation, research projects, and academic development.\n\nUDSM provides ICT facilities to support digital learning and university operations. These facilities include computer laboratories, internet connectivity, online learning systems, student portals such as ARIS 3, and other digital services. Students use ICT resources for course registration, accessing learning materials, research, communication, and completing academic activities.\n\nThe university provides student accommodation facilities through the University Students Accommodation Bureau (USAB). Several student residence halls are located within the Mlimani Campus area, allowing students who receive accommodation to live close to lecture facilities and other campus services. Accommodation availability depends on university allocation procedures and available spaces.\n\nHealthcare services are available through university health facilities located on campus. The University Health Centre provides medical support to students and members of the university community. Students can access medical consultations, basic treatment services, health guidance, and referrals where necessary.\n\nUDSM also provides recreational and sports facilities that support student wellbeing and social activities. Students can participate in different sports, clubs, and organizations that promote teamwork, leadership, creativity, and personal development. These activities complement academic studies by helping students develop social and professional skills.\n\nThe campus includes administrative offices where students access important services. These include academic offices, registration offices, examination offices, finance offices, student welfare offices, accommodation offices, and ICT support offices. Students should identify the correct office responsible for their issue instead of visiting unrelated departments.\n\nStudents and visitors can access the university through different transportation options available within Dar es Salaam. The campus is connected to major roads and can be reached using public transport, private vehicles, and other available transport services. Students are encouraged to familiarize themselves with campus routes and important locations during orientation.\n\nUDSM has additional campuses, centres, and specialized facilities outside the main Mlimani Campus. These include facilities dedicated to specific academic areas, research activities, and professional training. The Institute of Marine Sciences, for example, is located in Zanzibar and focuses on marine-related research and education.\n\nNew students are introduced to campus facilities during orientation programmes. Orientation helps students understand where to find important services such as libraries, lecture halls, accommodation offices, health facilities, ICT support, student welfare offices, and academic departments.\n\nStudents should always use official university communication channels for updated information about campus facilities, office locations, service availability, and changes affecting university operations. Buildings, offices, and facilities may change due to renovations, expansion projects, or administrative decisions.\n\nThe UDSM campus environment is designed to support academic excellence, research, innovation, and student development. By understanding the location of important facilities and services, students can navigate university life more effectively and make full use of the resources available during their studies.",
+    "aliases": [
+      "Where is UDSM located?",
+      "Where is Mlimani Campus?",
+      "How do I reach UDSM?",
+      "What facilities are available at UDSM?",
+      "What buildings are found at UDSM?",
+      "What is inside UDSM main campus?",
+      "Where are UDSM colleges located?",
+      "Does UDSM have hostels?",
+      "Where is the library at UDSM?"
+    ],
+    "keywords": [
+      "UDSM location",
+      "Mlimani Campus",
+      "University of Dar es Salaam",
+      "campus",
+      "main campus",
+      "facilities",
+      "lecture halls",
+      "library",
+      "computer labs",
+      "hostels",
+      "health centre",
+      "sports facilities",
+      "student services",
+      "administration block",
+      "colleges",
+      "schools",
+      "institutes",
+      "transport",
+      "campus map",
+      "Dar es Salaam"
+    ]
+  },
+  {
+    "category": "Student Organizations, Innovation Hubs and Campus Life",
+    "question": "What student organizations, innovation hubs, clubs, and campus activities are available at the University of Dar es Salaam (UDSM)?",
+    "answer": "The University of Dar es Salaam (UDSM) provides students with opportunities to participate in student organizations, academic clubs, innovation hubs, professional communities, leadership activities, sports, and other extracurricular programmes. These activities support students in developing practical skills, building professional networks, applying classroom knowledge to real-world problems, and gaining experience beyond academic coursework.\n\nStudent life at UDSM is not limited to lectures and examinations. The university encourages students to participate in activities that promote creativity, innovation, entrepreneurship, teamwork, leadership, and community engagement. Through clubs and innovation communities, students can collaborate with colleagues from different academic backgrounds and develop solutions to real challenges.\n\nThe Dar es Salaam University Students Organization (DARUSO) is the recognized student government structure that represents students at UDSM. DARUSO provides a platform where students participate in leadership, communicate student concerns, contribute ideas on student welfare, and engage with university management. Student leaders serve as representatives who help bridge communication between students and university authorities.\n\nWithin academic colleges, especially the College of Information and Communication Technologies (CoICT), students have access to technology-focused clubs and innovation communities that encourage practical learning, software development, research, entrepreneurship, and problem-solving.\n\nThe Youth for Children (Y4C) Hub is a technology-focused community that promotes human centered design and collaboration among students interested in technology. The hub provides an environment where students can improve their programming abilities, work on projects, share knowledge, participate in technical discussions, and prepare for careers in the technology industry.\n\nThe 3D Robotics Hub focuses on robotics, embedded systems, hardware development, automation, and practical engineering innovation. Students interested in robotics and emerging technologies can participate in projects involving hardware design, sensors, automation systems, and robotic applications. Such communities help students gain practical experience beyond theoretical classroom learning.\n\nUDICTI (University of Dar es Salaam ICT-related student community/initiative) provides a platform for students interested in information and communication technologies to collaborate, exchange knowledge, and participate in technology-related activities. It encourages students to explore areas such as software development, networking, cybersecurity, databases, artificial intelligence, and other ICT fields.\n\nFinHub is an innovation and technology community focused on financial technology (FinTech), entrepreneurship, digital financial solutions, and business innovation. Through such initiatives, students are exposed to the intersection between technology and financial services, allowing them to develop ideas and solutions addressing financial challenges.\n\nThe UISS Club (University of Information Systems Society Club) is a student community associated with information systems students and technology enthusiasts. The club provides opportunities for students to discuss information systems concepts, participate in academic activities, improve professional skills, and connect with other students interested in information systems and related careers.\n\nCoICT student communities often organize activities such as coding sessions, workshops, seminars, hackathons, innovation challenges, project exhibitions, networking events, and technical competitions. These activities allow students to apply theoretical knowledge from courses into practical projects and gain experience valued by employers.\n\nInnovation hubs and technology clubs also provide opportunities for students to collaborate across different programmes. For example, software students may work with engineering students on hardware projects, business students on entrepreneurship ideas, and students from other disciplines on technology-based solutions.\n\nStudents interested in joining these communities should follow announcements from their respective colleges, student leaders, official club pages, notice boards, and university communication channels. Membership procedures vary depending on the organization, and some clubs may require registration or participation in introductory activities.\n\nApart from technology communities, UDSM has many other student organizations including academic societies, cultural groups, debate clubs, entrepreneurship groups, environmental organizations, sports clubs, and professional associations. These groups provide opportunities for students from different fields to develop skills and participate in meaningful activities.\n\nParticipation in student organizations helps students develop important skills such as communication, leadership, teamwork, project management, creativity, and problem-solving. These skills complement academic qualifications and improve students' readiness for professional careers.\n\nStudents participating in clubs and innovation activities are expected to maintain academic responsibility and follow university regulations. Student organizations should promote positive learning environments and activities that contribute to student development and university growth.\n\nUDSM campus life provides students with many opportunities to learn, innovate, collaborate, and develop professionally. Students are encouraged to take advantage of available clubs, hubs, and communities because they provide practical experiences that support both academic success and future career development.",
+    "aliases": [
+      "What clubs are available at UDSM?",
+      "What technology clubs exist at CoICT?",
+      "What is Y4C Hub?",
+      "What is 3D Robotics Hub?",
+      "What is UDICTI?",
+      "What is FinHub?",
+      "What is UISS Club?",
+      "How can I join a student organization?",
+      "Are there innovation activities at UDSM?",
+      "How can I participate in university projects?"
+    ],
+    "keywords": [
+      "student organizations",
+      "student clubs",
+      "campus life",
+      "DARUSO",
+      "student leadership",
+      "innovation hubs",
+      "Y4C Hub",
+      "Youth for Code",
+      "3D Robotics Hub",
+      "UDICTI",
+      "FinHub",
+      "UISS Club",
+      "CoICT clubs",
+      "technology clubs",
+      "ICT community",
+      "entrepreneurship",
+      "research groups",
+      "student activities",
+      "events",
+      "competitions",
+      "hackathons",
+      "leadership"
+    ]
+  },
+  {
+    "category": "International Students and Exchange Programmes",
+    "question": "What opportunities are available for international students and UDSM students through exchange programmes?",
+    "answer": "The University of Dar es Salaam (UDSM) welcomes students from different countries through undergraduate, postgraduate, research, and exchange programmes. International students become part of a diverse academic community where they interact with students, researchers, and professionals from Tanzania and other parts of the world.\n\nInternational students apply through the official UDSM admission procedures and must meet the academic requirements of their chosen programme. Requirements vary depending on the level of study, including bachelor's degree, master's degree, doctoral studies, research programmes, and exchange opportunities. Applicants are required to provide relevant documents such as academic certificates, transcripts, identification documents, passport copies, and other supporting documents required during the application process.\n\nInternational applicants should ensure that their previous academic qualifications are recognized and meet UDSM admission requirements. Some programmes may have additional requirements depending on the academic field and level of study.\n\nPostgraduate applicants may be required to submit additional documents depending on their programme, including academic transcripts, research proposals for research-based programmes, recommendation letters, and other documents required by the relevant college, school, institute, or department.\n\nExchange programmes provide opportunities for students from partner universities and institutions to study at UDSM for a specific period while gaining academic and cultural experience. Exchange students follow the requirements agreed between UDSM and their home institutions, including academic eligibility, programme selection, credit transfer arrangements, and study duration.\n\nUDSM students also have opportunities to participate in exchange programmes with partner universities and institutions outside Tanzania. Through these programmes, eligible students can spend a specific period studying at another university, participate in research activities, take courses, and gain international academic exposure. These opportunities help students develop professional networks, experience different education systems, and improve their global understanding.\n\nStudents interested in outgoing exchange programmes should check announcements from UDSM international relations offices, colleges, schools, or academic departments for available opportunities and application procedures. Selection may depend on factors such as academic performance, programme compatibility, eligibility requirements, and availability of exchange positions. Students should confirm how courses completed during the exchange period will be transferred and recognized by UDSM before participating.\n\nAfter admission or selection, international and exchange students must complete university registration procedures, obtain joining instructions, arrange accommodation, and fulfill immigration requirements before beginning their studies in Tanzania. International students are responsible for obtaining the required visa or residence permit according to Tanzanian immigration regulations and ensuring that their travel documents remain valid.\n\nBefore travelling to Tanzania, international students should prepare important documents including admission letters, passports, academic certificates, immigration documents, financial arrangements, and other personal records. Keeping copies of important documents is recommended for easier access when needed.\n\nUpon arrival, international and exchange students participate in orientation activities that introduce them to university regulations, academic procedures, campus facilities, student services, accommodation arrangements, health services, ICT systems, library resources, and life in Tanzania.\n\nInternational students have access to many university facilities available to other students, including lecture facilities, libraries, ICT services, research facilities, health services, sports activities, student organizations, and cultural activities. Accommodation may be available through university allocation procedures depending on available spaces, while students may also arrange private accommodation near campus.\n\nStudents should plan for expenses related to tuition fees, accommodation, meals, transportation, study materials, immigration processes, health insurance, and personal needs. Costs vary depending on the programme, academic level, and student category.\n\nInternational students and exchange students are encouraged to participate in academic clubs, innovation hubs, cultural activities, sports, and student organizations. These activities help students build networks, develop skills, and adapt to the university environment.\n\nUDSM provides a multicultural learning environment where international students can gain academic knowledge, participate in research, experience Tanzanian culture, and develop professional connections. Through exchange programmes, UDSM students also gain opportunities to study at partner universities and gain international experience. Students should always use official UDSM communication channels for updated information about admission procedures, exchange opportunities, fees, registration requirements, and student services.",
+    "aliases": [
+      "Can international students study at UDSM?",
+      "Does UDSM have exchange programmes?",
+      "Can UDSM students study abroad?",
+      "How can I apply for an exchange programme?",
+      "What opportunities are available for foreign students?",
+      "Can I go to another university through UDSM?",
+      "Which universities partner with UDSM?",
+      "How do exchange students apply?"
+    ],
+    "keywords": [
+      "international students",
+      "foreign students",
+      "exchange programmes",
+      "student exchange",
+      "study abroad",
+      "partner universities",
+      "outgoing exchange",
+      "incoming exchange",
+      "international admission",
+      "visa",
+      "residence permit",
+      "undergraduate",
+      "postgraduate",
+      "research students",
+      "international office",
+      "global opportunities"
+    ]
+  },
+  {
+    "category": "University Staff and Academic Support",
+    "question": "Who are the staff members at the University of Dar es Salaam (UDSM), and how can students find and contact academic or administrative staff?",
+    "answer": "The University of Dar es Salaam (UDSM) has a large community of academic, technical, and administrative staff who support teaching, learning, research, student services, and university operations. Staff members play important roles in delivering academic programmes, guiding students, conducting research, managing university services, and ensuring smooth daily operations. UDSM maintains official staff directories where students and researchers can find information about staff members and their respective academic units. The university staff directory includes academic, technical, and administrative personnel from different colleges, schools, institutes, and departments.\n\nAcademic staff are responsible for teaching courses, preparing learning materials, conducting assessments, supervising student projects, guiding research activities, and supporting students in their academic development. Academic staff positions may include professors, associate professors, senior lecturers, lecturers, assistant lecturers, and tutorial assistants. The specific staff members available depend on the college, school, institute, and department offering a particular programme.\n\nStudents normally interact with academic staff through lectures, tutorials, practical sessions, consultation hours, research supervision, and academic advising. Lecturers provide guidance on course content, assignments, examinations, projects, and other academic matters related to their subjects.\n\nEach academic department has staff members specializing in different areas. For example, students in the College of Information and Communication Technologies (CoICT) interact with lecturers and researchers from departments related to Computer Science and Engineering, Information Systems, and other ICT-related fields. Engineering students interact with academic staff from their respective engineering departments, while students in sciences, humanities, law, business, and social sciences interact with staff members within their academic units.\n\nStudents who need academic assistance should first identify the correct lecturer, course instructor, academic advisor, or department office responsible for their programme. Questions about course content, assignments, research, projects, or academic progress should normally be directed to the relevant academic staff member.\n\nAcademic supervisors play an important role for students undertaking research projects, dissertations, and postgraduate studies. Supervisors guide students through research planning, methodology, writing, analysis, and completion of academic work. Students should communicate regularly with their supervisors and follow academic guidelines provided by their departments.\n\nTechnical staff support university academic activities by managing laboratories, equipment, technical facilities, and specialized learning environments. They are particularly important in programmes that require practical sessions, laboratory work, engineering activities, computing facilities, and research equipment.\n\nAdministrative staff support students through services such as registration, examinations, finance, admissions, accommodation, student welfare, human resources, and general university administration. Students often interact with administrative offices when completing official procedures or seeking assistance with university services.\n\nThe university staff directory can be used to identify staff members by name, academic unit, position, and contact information where available. Students should use official university communication channels when contacting staff members to ensure that they receive accurate information and professional assistance.\n\nWhen contacting a lecturer or university staff member, students should communicate respectfully and provide clear information about their request. A good communication message should include the student's name, registration details where necessary, programme, course or department, and a clear explanation of the issue requiring assistance.\n\nStudents should understand that staff members may have different responsibilities and schedules. Academic staff members may have teaching sessions, meetings, research activities, or administrative duties, so students should follow appropriate communication procedures and allow reasonable time for responses.\n\nFor official matters such as registration problems, examination issues, admission questions, fees, accommodation, or student records, students should contact the appropriate university office rather than individual lecturers unless the matter relates directly to academic teaching or supervision.\n\nUDSM staff members contribute significantly to the university's mission of providing quality education, conducting impactful research, and supporting student development. By knowing how to locate and communicate with the correct staff members, students can access academic guidance and university services more effectively.\n\nStudents should always rely on official UDSM staff directories and university communication platforms for current staff information because staff appointments, departments, and contact details may change over time.",
+    "aliases": [
+      "How do I find a UDSM lecturer?",
+      "Where can I see UDSM staff contacts?",
+      "How can I contact my lecturer?",
+      "Who are the academic staff at CoICT?",
+      "Who is my course instructor?",
+      "Where can I find a supervisor?",
+      "How do I contact a department office?",
+      "Who provides academic support at UDSM?"
+    ],
+    "keywords": [
+      "staff",
+      "academic staff",
+      "lecturers",
+      "professors",
+      "assistant lecturers",
+      "tutorial assistants",
+      "technical staff",
+      "administrative staff",
+      "staff directory",
+      "contact lecturer",
+      "department staff",
+      "college staff",
+      "office hours",
+      "academic advisor",
+      "supervisor",
+      "researcher",
+      "UDSM staff"
+    ]
+  },
+  {
+    "category": "UDSM Websites and Online Platforms",
+    "question": "What are the official websites and online platforms used by the University of Dar es Salaam (UDSM)?",
+    "answer": "The University of Dar es Salaam (UDSM) provides several online platforms that support academic activities, student services, administration, communication, and research activities. These systems help students, staff, and university offices manage different processes efficiently.\n\nThe Final Year Project (FYP) Portal is an online system designed to support the management of undergraduate final year projects. It allows students to submit project proposals, provide project details, track project progress, and manage project-related activities according to requirements set by their academic departments. Academic supervisors use the system to review submissions, provide guidance, monitor progress, give feedback, and support students throughout the project development process. Students are expected to follow project deadlines, provide accurate information, and maintain regular communication with their supervisors.\n\nThe Practical Training Management System (PTMS) portal supports the coordination of student practical training activities. It helps students, academic departments, and training coordinators manage practical training processes such as registration, placement information, supervision, assessment, and reporting. Students undertaking practical training use the system to submit required details, access instructions, provide placement information, and complete documentation required for assessment. Supervisors and coordinators use it to monitor student progress and manage practical training activities.\n\nOther important UDSM online platforms include:\n\n- UDSM Official Website: Provides general university information, announcements, academic programmes, admission information, contacts, regulations, and institutional updates.\n\n- ARIS 3 (Academic Registration Information System) portal: Supports academic activities such as course registration, viewing academic records, checking examination results, and managing student information.\n\n- Learning Management System (LMS): Supports online learning by providing access to course materials, assignments, announcements, and other learning resources.\n\n- UDSM Library Portal: Provides access to library services, electronic resources, online catalogues, journals, and research materials.\n\n- UDSM Webmail: Provides official communication between students, staff, and university offices.\n\nStudents should use official university platforms and protect their login credentials because these systems contain academic and personal information. When facing technical problems, students should contact ICT support services, while academic or administrative issues should be directed to the relevant department or university office.",
+    "aliases": [
+      "What is the UDSM official website?",
+      "Where can I find UDSM announcements?",
+      "Where do I access ARIS?",
+      "Where can I apply for admission?",
+      "Where can I find the UDSM prospectus?",
+      "How do I access the student portal?",
+      "Where is the UDSM library website?",
+      "What online systems does UDSM use?"
+    ],
+    "keywords": [
+      "website",
+      "official website",
+      "UDSM website",
+      "online platforms",
+      "ARIS",
+      "ARIS 3",
+      "student portal",
+      "access portal",
+      "LMS",
+      "library",
+      "webmail",
+      "admission portal",
+      "prospectus",
+      "academic calendar",
+      "student services",
+      "ICT portal",
+      "online systems"
+    ]
   }
 ]

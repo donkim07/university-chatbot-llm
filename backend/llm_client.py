@@ -51,20 +51,62 @@ class LLMClient:
         self._faq_mtime: float = 0.0
         self.reload_faq_data()
 
+    def _normalize_faq_entry(self, raw: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        question = str(raw.get("question", "")).strip()
+        answer = str(raw.get("answer", "")).strip()
+        category = str(raw.get("category", "General University Support")).strip()
+        if not question or not answer:
+            return None
+
+        def _as_text_list(value: Any) -> List[str]:
+            if not isinstance(value, list):
+                return []
+            out: List[str] = []
+            for item in value:
+                text = str(item).strip()
+                if text:
+                    out.append(text)
+            return out
+
+        # Remove noisy citation artifacts from imported long-form FAQ content.
+        answer = re.sub(r":contentReference\[[^\]]+\]\{[^}]+\}", "", answer).strip()
+
+        return {
+            "category": category or "General University Support",
+            "question": question,
+            "answer": answer,
+            "aliases": _as_text_list(raw.get("aliases")),
+            "keywords": _as_text_list(raw.get("keywords")),
+        }
+
     def reload_faq_data(self) -> int:
         path = settings.faq_data_path
         try:
             mtime = os.path.getmtime(path)
-            if mtime == self._faq_mtime and self.faq_data:
+            if self.faq_data and mtime == self._faq_mtime:
                 return len(self.faq_data)
+
             with open(path, "r", encoding="utf-8") as f:
-                self.faq_data = json.load(f)
+                payload = json.load(f)
+            if not isinstance(payload, list):
+                raise ValueError(f"FAQ file '{path}' must be a JSON list.")
+
+            normalized: List[Dict[str, Any]] = []
+            for raw in payload:
+                if not isinstance(raw, dict):
+                    continue
+                faq = self._normalize_faq_entry(raw)
+                if faq:
+                    normalized.append(faq)
+
+            self.faq_data = normalized
             self._faq_mtime = mtime
             logger.info(f"Loaded {len(self.faq_data)} FAQ entries from {path}")
             return len(self.faq_data)
         except Exception as e:
-            logger.error(f"Error loading FAQ from '{path}': {e}")
+            logger.error(f"Error loading FAQ data: {e}")
             self.faq_data = []
+            self._faq_mtime = 0.0
             return 0
 
     def faq_status(self) -> Dict[str, Any]:
