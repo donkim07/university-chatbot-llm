@@ -14,6 +14,7 @@ export interface Message {
   rag_used?: boolean;
   matched_faq?: string;
   document_used?: boolean;
+  document_filename?: string;
   rating?: 'Good' | 'Average' | 'Poor';
 }
 

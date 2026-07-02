@@ -84,14 +84,34 @@
       <p class="max-w-2xl mx-auto mb-2 text-xs text-amber-400 px-2 text-center">{{ inputError() }}</p>
     }
     <form (ngSubmit)="onSubmit()" class="max-w-2xl mx-auto flex gap-3">
-      <input
-        type="text"
-        name="query"
-        [(ngModel)]="userQuery"
-        [disabled]="isLoading() || chatService.systemStatus() === 'offline'"
-        placeholder="{{ activeDocument() ? 'Ask a question about your document...' : 'Ask a question to start a new chat...' }}"
-        class="flex-1 min-w-0 bg-slate-900 border border-slate-800 hover:border-slate-700 focus:border-purple-500 outline-none rounded-full px-5 sm:px-6 py-3.5 sm:py-4 text-sm text-slate-100 placeholder-slate-500 transition-all shadow-inner focus:ring-1 focus:ring-purple-500/20"
-      />
+      <div class="relative flex-1 min-w-0">
+        <label
+          class="absolute left-2 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-9 h-9 rounded-full text-slate-400 hover:text-purple-300 hover:bg-slate-800 transition-colors cursor-pointer"
+          [class.opacity-50]="isUploading() || chatService.systemStatus() === 'offline'"
+          title="Attach .txt or .md file"
+        >
+          <input
+            type="file"
+            accept=".txt,.md,text/plain,text/markdown"
+            class="hidden"
+            [disabled]="isUploading() || chatService.systemStatus() === 'offline'"
+            (change)="onFileSelected($event)"
+          />
+          @if (isUploading()) {
+            <span class="w-4 h-4 border-2 border-purple-400/30 border-t-purple-400 rounded-full animate-spin"></span>
+          } @else {
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+          }
+        </label>
+        <input
+          type="text"
+          name="query"
+          [(ngModel)]="userQuery"
+          [disabled]="isLoading() || chatService.systemStatus() === 'offline'"
+          placeholder="{{ activeDocument() ? 'Ask a question about your document...' : 'Ask a question to start a new chat...' }}"
+          class="w-full bg-slate-900 border border-slate-800 hover:border-slate-700 focus:border-purple-500 outline-none rounded-full pl-12 pr-5 sm:pr-6 py-3.5 sm:py-4 text-sm text-slate-100 placeholder-slate-500 transition-all shadow-inner focus:ring-1 focus:ring-purple-500/20"
+        />
+      </div>
       <button
         type="submit"
         [disabled]="!userQuery().trim() || isLoading() || chatService.systemStatus() === 'offline'"

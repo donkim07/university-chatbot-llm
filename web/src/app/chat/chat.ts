@@ -2,7 +2,7 @@ import { Component, computed, effect, ElementRef, inject, OnInit, signal, ViewCh
 import { ActivatedRoute } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ChatService, Message } from '../services/chat.service';
+import { ChatService, Message, UserDocument } from '../services/chat.service';
 import { Title } from '@angular/platform-browser';
 import { nowLocalTime } from '../lib/time';
 
@@ -27,6 +27,16 @@ export class Chat implements OnInit {
   protected readonly isUploading = signal(false);
   protected readonly systemStatus = this.chatService.systemStatus;
   protected readonly activeDocument = this.chatService.activeDocument;
+  private readonly pendingFooterDocument = signal<UserDocument | null>(null);
+
+  /** Shown in footer before send; cleared once the message is sent. */
+  protected readonly footerDocument = computed(() => {
+    const pending = this.pendingFooterDocument();
+    if (pending) return pending;
+    const active = this.activeDocument();
+    if (active && this.userQuery().trim()) return active;
+    return null;
+  });
 
   protected readonly ratings = [
     { value: 'Good' as const, emoji: '👍', label: 'Good' },
@@ -63,11 +73,29 @@ export class Chat implements OnInit {
     });
   }
 
+  private annotateDocumentOnUserMessages(messages: Message[]): Message[] {
+    const session = this.currentSession();
+    const docName = session?.document_filename;
+    if (!docName) return messages;
+
+    return messages.map((msg, index) => {
+      if (msg.role !== 'user' || msg.document_filename) return msg;
+      const next = messages[index + 1];
+      if (
+        next?.role === 'assistant' &&
+        (next.document_used || next.category === 'Document Q&A')
+      ) {
+        return { ...msg, document_filename: docName };
+      }
+      return msg;
+    });
+  }
+
   private loadMessages(sessionId: string) {
     this.isLoading.set(true);
     this.chatService.getSessionMessages(sessionId).subscribe({
       next: (data) => {
-        this.messages.set(data);
+        this.messages.set(this.annotateDocumentOnUserMessages(data));
         this.isLoading.set(false);
         this.scrollToBottom();
       },
@@ -95,12 +123,15 @@ export class Chat implements OnInit {
     }
     this.inputError.set('');
 
+    const doc = this.activeDocument();
     const userMsg: Message = {
       role: 'user',
       content: query,
       timestamp: nowLocalTime(),
+      ...(doc ? { document_filename: doc.filename } : {}),
     };
     this.messages.update((msgs) => [...msgs, userMsg]);
+    this.pendingFooterDocument.set(null);
     this.userQuery.set('');
     this.isLoading.set(true);
 
@@ -164,6 +195,7 @@ export class Chat implements OnInit {
       next: () => {
         this.isUploading.set(false);
         input.value = '';
+        this.pendingFooterDocument.set(this.activeDocument());
         this.chatService.loadSessions();
       },
       error: (err) => {
@@ -177,6 +209,7 @@ export class Chat implements OnInit {
   protected removeDocument(): void {
     const doc = this.activeDocument();
     if (!doc) return;
+    this.pendingFooterDocument.set(null);
     this.chatService.deleteDocument(doc.id).subscribe({
       next: () => this.chatService.loadSessions(),
       error: (err) => console.error('Failed to delete document', err),

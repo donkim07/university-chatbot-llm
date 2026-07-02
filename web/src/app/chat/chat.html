@@ -4,6 +4,12 @@
       @for (msg of messages(); track msg.id ?? $index; let msgIdx = $index) {
         @if (msg.role === 'user') {
           <div class="flex flex-col max-w-[92%] sm:max-w-[80%] self-end animate-slide-in">
+            @if (msg.document_filename) {
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 mb-1.5 rounded-full text-[11px] bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 max-w-full self-end">
+                <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <span class="truncate">{{ msg.document_filename }}</span>
+              </span>
+            }
             <div class="px-5 py-3.5 rounded-2xl rounded-br-none leading-relaxed text-sm whitespace-pre-wrap shadow-md shadow-black/10 bg-gradient-to-br from-purple-600 to-blue-600 text-white">
               {{ msg.content }}
             </div>
@@ -93,43 +99,44 @@
     @if (inputError()) {
       <p class="max-w-4xl mx-auto mb-2 text-xs text-amber-400 px-2">{{ inputError() }}</p>
     }
-    <div class="max-w-4xl mx-auto mb-3 flex flex-wrap items-center gap-2 px-1">
-      <label
-        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer border border-slate-700 bg-slate-900 text-slate-300 hover:border-purple-500/40 hover:text-white transition-colors"
-        [class.opacity-50]="isUploading() || systemStatus() === 'offline'"
-      >
-        <input
-          type="file"
-          accept=".txt,.md,text/plain,text/markdown"
-          class="hidden"
-          [disabled]="isUploading() || systemStatus() === 'offline'"
-          (change)="onFileSelected($event)"
-        />
-        @if (isUploading()) {
-          <span class="w-3 h-3 border-2 border-purple-400/30 border-t-purple-400 rounded-full animate-spin"></span>
-          Uploading...
-        } @else {
-          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-          Attach .txt / .md
-        }
-      </label>
-      @if (activeDocument(); as doc) {
-        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 max-w-[14rem]">
+    @if (footerDocument(); as doc) {
+      <div class="max-w-4xl mx-auto mb-2 px-1 flex justify-end">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 max-w-full">
           <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           <span class="truncate">{{ doc.filename }}</span>
           <button type="button" (click)="removeDocument()" class="text-slate-400 hover:text-rose-400 cursor-pointer shrink-0">×</button>
         </span>
-      }
-    </div>
+      </div>
+    }
     <form (ngSubmit)="sendMessage(); $event.preventDefault()" class="max-w-4xl mx-auto flex gap-3">
-      <input
-        type="text"
-        name="query"
-        [(ngModel)]="userQuery"
-        [disabled]="isLoading() || systemStatus() === 'offline'"
-        placeholder="{{ activeDocument() ? 'Ask about your uploaded document...' : 'Type a message to reply...' }}"
-        class="flex-1 min-w-0 bg-slate-900 border border-slate-800 hover:border-slate-700 focus:border-purple-500 outline-none rounded-full px-5 sm:px-6 py-3.5 sm:py-4 text-sm text-slate-100 placeholder-slate-500 transition-all shadow-inner focus:ring-1 focus:ring-purple-500/20"
-      />
+      <div class="relative flex-1 min-w-0">
+        <label
+          class="absolute left-2 top-1/2 -translate-y-1/2 z-10 inline-flex items-center justify-center w-9 h-9 rounded-full text-slate-400 hover:text-purple-300 hover:bg-slate-800 transition-colors cursor-pointer"
+          [class.opacity-50]="isUploading() || systemStatus() === 'offline'"
+          title="Attach .txt or .md file"
+        >
+          <input
+            type="file"
+            accept=".txt,.md,text/plain,text/markdown"
+            class="hidden"
+            [disabled]="isUploading() || systemStatus() === 'offline'"
+            (change)="onFileSelected($event)"
+          />
+          @if (isUploading()) {
+            <span class="w-4 h-4 border-2 border-purple-400/30 border-t-purple-400 rounded-full animate-spin"></span>
+          } @else {
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+          }
+        </label>
+        <input
+          type="text"
+          name="query"
+          [(ngModel)]="userQuery"
+          [disabled]="isLoading() || systemStatus() === 'offline'"
+          placeholder="{{ activeDocument() ? 'Ask about your uploaded document...' : 'Type a message to reply...' }}"
+          class="w-full bg-slate-900 border border-slate-800 hover:border-slate-700 focus:border-purple-500 outline-none rounded-full pl-12 pr-5 sm:pr-6 py-3.5 sm:py-4 text-sm text-slate-100 placeholder-slate-500 transition-all shadow-inner focus:ring-1 focus:ring-purple-500/20"
+        />
+      </div>
       <button
         type="submit"
         [disabled]="!userQuery().trim() || isLoading() || systemStatus() === 'offline'"
